@@ -10,15 +10,7 @@
 
 ## 快速开始
 
-### 推荐：Live Server
-
-1. VS Code 安装 Live Server 扩展
-2. 右键 `index.html` → "Open with Live Server"
-3. 浏览器自动打开
-
-### 或直接部署
-
-推送到 GitHub → Settings → Pages → 选择 `main` 分支根目录 → 访问 `https://waibibabo666.github.io/GemNamingGambit/`
+访问 `https://waibibabo666.github.io/GemNamingGambit/`
 
 纯静态文件，任何静态托管（Vercel / Netlify / OSS）均可，无构建步骤。
 
@@ -46,12 +38,6 @@
 │   ├── 01_diamond.png
 │   ├── 02_CarmenLucia.jpg
 │   └── ...
-└── docs/                # 项目文档
-    ├── 01-需求文档-v1.md
-    ├── 02-需求文档-v2.md
-    ├── 03-交接报告-Trae.md
-    ├── 04-问题追踪.md
-    └── 05-决策记录.md
 ```
 
 ---
@@ -76,7 +62,7 @@
 |------|------|------|
 | 核心玩法 | ✅ 可玩 | 拖拽、下注、翻牌、乘积结算 |
 | 题库 | ✅ 28 题 | 覆盖钻石/红蓝宝/祖母绿/珍珠/翡翠等常见宝石 |
-| 图片 | ✅ 28 张 | 真实宝石图片 |
+| 图片 | ✅ 28 张 | 真实宝石图片（侵权必删）|
 | 排行榜 | ✅ | localStorage 存储，最多 100 条，可滑动 |
 | 彩蛋系统 | ✅ | 第 28 题 8% 概率刷出特殊词条 |
 | 移动端 | ⚠️ 部分支持 | 触摸拖拽可用，体验待优化 |
