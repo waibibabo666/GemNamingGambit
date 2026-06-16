@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝石命名赌局 — Gem Naming Gambit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- ═══════════ 开始界面 ═══════════ -->
+        <div id="start-screen">
+            <div class="title-block">
+                <span class="title-icon">◆</span>
+                <h1 class="title-text">宝石命名赌局</h1>
+                <p class="title-sub">GEM NAMING GAMBIT</p>
+            </div>
+
+            <button class="btn-rules" id="rules-btn">◆ 游戏规则</button>
+            <div class="rules-panel" id="rules-panel">
+                <h3>规则书</h3>
+                <ul>
+                    <li>观察宝石，从词条池中选择正确的名称词条</li>
+                    <li>将词条拖拽到倍率区，可拖拽排序（最多 8 个）</li>
+                    <li>点击开牌后按顺序翻转词条，乘积结算</li>
+                    <li>正确词条获得正倍率，错误词条可能为负或零</li>
+                    <li>遇到 0 或负数倍率立即停止翻牌</li>
+                    <li>共 10 题，最终筹码计入排行榜</li>
+                </ul>
+            </div>
+
+            <div class="leaderboard card-panel">
+                <h3>排行榜</h3>
+                <div class="leaderboard-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>得分</th>
+                                <th>日期</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body">
+                            <tr><td colspan="3" class="no-data">暂无记录</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="start-btn">开始游戏</button>
+        </div>
+
+        <!-- ═══════════ 游戏界面 ═══════════ -->
+        <div id="game-screen">
+            <div class="status-bar card-panel">
+                <span class="status-chips">
+                    <span class="chip-icon"></span>
+                    <span id="chips-value">10</span>
+                </span>
+                <span class="status-round" id="round-display">第 1/10 题</span>
+            </div>
+
+            <div class="gem-display card-panel">
+                <img id="gem-image" src="" alt="宝石图片" style="display:none">
+                <span class="gem-emoji-placeholder" id="gem-emoji">◆</span>
+            </div>
+
+            <div class="middle-area">
+                <div class="chip-panel card-panel">
+                    <h4>筹码操作</h4>
+                    <div class="chip-btn-row">
+                        <button class="btn-double" onclick="adjustChip(2)">×2</button>
+                        <button class="btn-half" onclick="adjustChip(0.5)">÷2</button>
+                    </div>
+                    <button class="btn-allin" onclick="allIn()">ALL IN</button>
+                    <div class="current-chip-display" id="current-chip-text">当前筹码: 10</div>
+                    <button class="btn-reveal" onclick="openCards()">开牌</button>
+                </div>
+
+                <div class="multiplier-area" id="multiplier-area">
+                    <h4>倍率区</h4>
+                    <div id="multiplier-slots">
+                        <div class="multiplier-slot">拖拽词条到这里</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-pool card-panel">
+                <h4>词条池</h4>
+                <div class="terms-grid" id="terms-grid"></div>
+                <div class="drop-zone" id="drop-zone">
+                    拖回此处移除词条
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════ 结算界面 ═══════════ -->
+        <div id="result-screen">
+            <div class="result-overlay"></div>
+            <div class="result-content card-panel" id="result-content">
+                <div class="result-title">结算结果</div>
+                <img class="result-gem-image" id="result-gem-image" src="" alt="题目宝石">
+                <div class="multiplier-display" id="multiplier-display">×1.0</div>
+                <div class="score-display" id="score-display">+0</div>
+                <div class="revealed-terms" id="revealed-terms"></div>
+                <button class="btn-next" id="next-btn" onclick="nextRound()">下一题</button>
+            </div>
+        </div>
+
+        <!-- ═══════════ 最终结算界面 ═══════════ -->
+        <div id="final-screen">
+            <h2 class="final-title">游戏结束</h2>
+            <div class="final-reason" id="final-reason"></div>
+            <div class="final-score" id="final-score">0</div>
+            <div class="final-rank" id="rank-badge"></div>
+            <button class="btn-restart" id="restart-btn" onclick="restartGame()">再来一局</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

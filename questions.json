@@ -1,0 +1,2805 @@
+[
+  {
+    "id": 1,
+    "image": "images/01_diamond.png",
+    "gemName": "钻石",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "库里南一号钻石",
+        "multiplier": 2.5,
+        "desc": "镶嵌于英王权杖，重530.2克拉，梨形切割，世界最大无色切割钻石"
+      },
+      {
+        "text": "非洲之星",
+        "multiplier": 2.2,
+        "desc": "库里南一号的别称，同一颗钻石，常见于历史文献"
+      },
+      {
+        "text": "Cullinan I",
+        "multiplier": 2.3,
+        "desc": "英文正式名称，国际通用"
+      },
+      {
+        "text": "英王权杖主石",
+        "multiplier": 1.5,
+        "desc": "描述性正确，但非正式命名"
+      },
+      {
+        "text": "大非洲之星",
+        "multiplier": 1.8,
+        "desc": "非洲之星的常见变体称呼"
+      },
+      {
+        "text": "库里南二号钻石",
+        "multiplier": -0.5,
+        "desc": "镶嵌于帝国王冠正面，与一号不同，易混淆"
+      },
+      {
+        "text": "光之山钻石",
+        "multiplier": -1.8,
+        "desc": "另一颗历史名钻，镶嵌于王太后王冠，极易混淆"
+      },
+      {
+        "text": "库里南钻石",
+        "multiplier": 0.2,
+        "desc": "指3106克拉原石，非权杖上这颗切割成品"
+      },
+      {
+        "text": "摄政王钻石",
+        "multiplier": -1.2,
+        "desc": "法国历史名钻，非英国王室"
+      },
+      {
+        "text": "希望蓝钻",
+        "multiplier": -1.5,
+        "desc": "蓝色钻石，收藏于美国史密森尼博物馆"
+      },
+      {
+        "text": "钻石恒久远",
+        "multiplier": -1.0,
+        "desc": "商业广告语，无关具体宝石"
+      },
+      {
+        "text": "南非之星",
+        "multiplier": -0.8,
+        "desc": "另一颗南非产名钻，与库里南无直接关系"
+      },
+      {
+        "text": "德累斯顿绿钻",
+        "multiplier": -1.3,
+        "desc": "绿色钻石，德国收藏"
+      },
+      {
+        "text": "泰勒-伯顿钻石",
+        "multiplier": -1.1,
+        "desc": "伊丽莎白·泰勒的梨形钻石"
+      },
+      {
+        "text": "奥洛夫钻石",
+        "multiplier": -1.4,
+        "desc": "镶嵌于俄罗斯凯瑟琳大帝权杖"
+      },
+      {
+        "text": "仙希钻石",
+        "multiplier": -1.0,
+        "desc": "浅黄色历史名钻，曾属法国王室"
+      },
+      {
+        "text": "马果西钻石",
+        "multiplier": -1.6,
+        "desc": "巴西产历史名钻，曾属葡萄牙王室"
+      },
+      {
+        "text": "人造莫桑石",
+        "multiplier": -1.0,
+        "desc": "钻石仿制品，完全不相关"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "images/02_CarmenLucia.jpg",
+    "gemName": "红宝石",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "卡门·露西亚红宝石",
+        "multiplier": 3.8,
+        "desc": "重23.1克拉，缅甸产，无烧鸽血红，收藏于美国史密森尼博物馆"
+      },
+      {
+        "text": "Carmen Lucia Ruby",
+        "multiplier": 3.6,
+        "desc": "英文正式名称，国际宝石学通用"
+      },
+      {
+        "text": "史密森尼鸽血红",
+        "multiplier": 2.4,
+        "desc": "描述性正确，点明收藏机构，但非官方名称"
+      },
+      {
+        "text": "缅甸无烧鸽血红",
+        "multiplier": 2.0,
+        "desc": "描述其品质特征，但非这颗宝石的专有命名"
+      },
+      {
+        "text": "彼得·巴克红宝石",
+        "multiplier": -2.5,
+        "desc": "虚构名称，与卡门·露西亚的捐赠者彼得·巴克混淆"
+      },
+      {
+        "text": "德朗红宝石",
+        "multiplier": -2.2,
+        "desc": "另一颗著名缅甸红宝石，重25.5克拉，极易混淆"
+      },
+      {
+        "text": "日出红宝石",
+        "multiplier": -2.8,
+        "desc": "重25.59克拉，2015年拍卖创纪录，常被张冠李戴"
+      },
+      {
+        "text": "格拉夫红宝石",
+        "multiplier": -2.0,
+        "desc": "重8.62克拉，同为缅甸鸽血红但重量较小"
+      },
+      {
+        "text": "血钻",
+        "multiplier": -3.5,
+        "desc": "冲突钻石的电影名，与红宝石完全无关"
+      },
+      {
+        "text": "伊丽莎白泰勒红宝石",
+        "multiplier": -2.3,
+        "desc": "泰勒收藏的红宝石首饰，非这颗"
+      },
+      {
+        "text": "缅甸红宝石",
+        "multiplier": -1.0,
+        "desc": "过于泛化，泛指所有缅甸产红宝石"
+      },
+      {
+        "text": "鸽血红",
+        "multiplier": -1.0,
+        "desc": "红宝石颜色评级术语，非宝石名称"
+      },
+      {
+        "text": "莫桑比克红宝石",
+        "multiplier": -1.8,
+        "desc": "产地不同，当代市场主流，但非卡门·露西亚"
+      },
+      {
+        "text": "星光红宝石",
+        "multiplier": -2.0,
+        "desc": "具有星光效应，卡门·露西亚无此效应"
+      },
+      {
+        "text": "合成红宝石",
+        "multiplier": -3.0,
+        "desc": "实验室生长，商业仿品，价值天壤之别"
+      },
+      {
+        "text": "尖晶石",
+        "multiplier": -2.5,
+        "desc": "常与红宝石共生产出，历史上被误认为红宝石"
+      },
+      {
+        "text": "红色碧玺",
+        "multiplier": -2.2,
+        "desc": "卢比莱碧玺，外观似红宝石但本质完全不同"
+      },
+      {
+        "text": "红色石榴石",
+        "multiplier": -2.0,
+        "desc": "铁铝榴石，常见红宝石仿制品"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "images/03_BlueBelleOfAsia.png",
+    "gemName": "蓝宝石",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "Blue Belle of Asia",
+        "multiplier": 3.2,
+        "desc": "英文正式名称，国际通用"
+      },
+      {
+        "text": "亚洲蓝色美人",
+        "multiplier": 2.8,
+        "desc": "中文直译名"
+      },
+      {
+        "text": "亚洲蓝佳人",
+        "multiplier": 2.5,
+        "desc": "另一常见中文译名"
+      },
+      {
+        "text": "亚洲蓝宝石",
+        "multiplier": 1.5,
+        "desc": "命名结构正确，点出亚洲产地"
+      },
+      {
+        "text": "斯里兰卡蓝宝石",
+        "multiplier": 1.2,
+        "desc": "产地命名正确，斯里兰卡是蓝宝石重要产区"
+      },
+      {
+        "text": "锡兰蓝宝石",
+        "multiplier": 1.2,
+        "desc": "锡兰为斯里兰卡旧称，历史命名"
+      },
+      {
+        "text": "枕形切割蓝宝石",
+        "multiplier": 0.8,
+        "desc": "描述切割方式，大类正确"
+      },
+      {
+        "text": "大颗蓝宝石",
+        "multiplier": 0.5,
+        "desc": "描述尺寸，大类正确"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": 0.3,
+        "desc": "矿物学大类正确，但未特指"
+      },
+      {
+        "text": "刚玉",
+        "multiplier": 0.3,
+        "desc": "矿物学名称，蓝宝石为刚玉的一种"
+      },
+      {
+        "text": "缅甸蓝宝石",
+        "multiplier": 0,
+        "desc": "产地不对，但品种正确，不扣分也不加分"
+      },
+      {
+        "text": "克什米尔蓝宝石",
+        "multiplier": -0.5,
+        "desc": "产地混淆，但同为蓝宝石，轻微扣分"
+      },
+      {
+        "text": "亚当之星",
+        "multiplier": -1.5,
+        "desc": "另一颗斯里兰卡巨型蓝宝石，名称易混淆"
+      },
+      {
+        "text": "东方蓝巨人",
+        "multiplier": -1.5,
+        "desc": "另一颗巨型蓝宝石的别名"
+      },
+      {
+        "text": "帕帕拉恰蓝宝石",
+        "multiplier": -1.8,
+        "desc": "颜色完全错误（粉橙色 vs 蓝色），品种内混淆"
+      },
+      {
+        "text": "坦桑石",
+        "multiplier": -2.5,
+        "desc": "跨品种混淆，矿物不同，常见命名错误"
+      },
+      {
+        "text": "合成蓝宝石",
+        "multiplier": -2.5,
+        "desc": "天然 vs 人造，本质不同"
+      },
+      {
+        "text": "蓝色尖晶石",
+        "multiplier": -2.0,
+        "desc": "跨品种，矿物不同"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "image": "images/04_emerald.png",
+    "gemName": "祖母绿",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "哥伦比亚祖母绿原石",
+        "multiplier": 3.2,
+        "desc": "产地+品种+形态，完整准确"
+      },
+      {
+        "text": "祖母绿原石",
+        "multiplier": 2.5,
+        "desc": "品种+形态，正确，缺产地信息"
+      },
+      {
+        "text": "哥伦比亚祖母绿",
+        "multiplier": 2.2,
+        "desc": "产地+品种，正确，未注明原石状态"
+      },
+      {
+        "text": "绿柱石原石",
+        "multiplier": 1.8,
+        "desc": "矿物学名称+形态，祖母绿是绿柱石的一种"
+      },
+      {
+        "text": "祖母绿",
+        "multiplier": 1.5,
+        "desc": "品种正确，但缺产地和形态信息"
+      },
+      {
+        "text": "绿柱石",
+        "multiplier": 1.2,
+        "desc": "矿物学大类正确，祖母绿为铬致色的绿柱石"
+      },
+      {
+        "text": "哥伦比亚原石",
+        "multiplier": 1.0,
+        "desc": "产地+形态正确，但未点明品种"
+      },
+      {
+        "text": "未切割祖母绿",
+        "multiplier": 1.2,
+        "desc": "描述性正确，非专业命名"
+      },
+      {
+        "text": "祖母绿矿石",
+        "multiplier": 1.0,
+        "desc": "通俗说法，可接受"
+      },
+      {
+        "text": "晶体",
+        "multiplier": 0.5,
+        "desc": "过于泛化，但方向正确"
+      },
+      {
+        "text": "赞比亚祖母绿原石",
+        "multiplier": 0,
+        "desc": "产地错误，但品种和形态正确，不扣分"
+      },
+      {
+        "text": "巴西祖母绿原石",
+        "multiplier": 0,
+        "desc": "同上，产地混淆但大类正确"
+      },
+      {
+        "text": "祖母绿切割钻石",
+        "multiplier": -1.5,
+        "desc": "'祖母绿切割'是切割方式名，非祖母绿本身"
+      },
+      {
+        "text": "沙弗莱石",
+        "multiplier": -2.0,
+        "desc": "绿色石榴石，常与祖母绿混淆，跨品种"
+      },
+      {
+        "text": "绿色碧玺",
+        "multiplier": -1.8,
+        "desc": "绿色但矿物不同，常见混淆"
+      },
+      {
+        "text": "翡翠原石",
+        "multiplier": -2.5,
+        "desc": "翡翠为硬玉/软玉，跨品种且形态误导"
+      },
+      {
+        "text": "合成祖母绿",
+        "multiplier": -2.5,
+        "desc": "人造 vs 天然，本质不同"
+      },
+      {
+        "text": "橄榄石",
+        "multiplier": -2.0,
+        "desc": "黄绿色，矿物不同"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "images/05_amethyst.jpg",
+    "gemName": "紫水晶",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "ἀμέθυστος",
+        "multiplier": 3.8,
+        "desc": "希腊语原词，意为'不醉'，古希腊人认为紫水晶可防醉酒"
+      },
+      {
+        "text": "Amethyst",
+        "multiplier": 3.2,
+        "desc": "英文通用名称，源自希腊语 ἀμέθυστος"
+      },
+      {
+        "text": "紫水晶",
+        "multiplier": 2.8,
+        "desc": "中文通用名称，石英家族紫色品种"
+      },
+      {
+        "text": "amethystos",
+        "multiplier": 2.5,
+        "desc": "希腊语拉丁化转写，词源相同"
+      },
+      {
+        "text": "紫色石英",
+        "multiplier": 2.0,
+        "desc": "矿物学描述，紫水晶的准确成分定义"
+      },
+      {
+        "text": "石英",
+        "multiplier": 1.2,
+        "desc": "矿物学大类，紫水晶为石英的紫色变种"
+      },
+      {
+        "text": "σάπφειρος",
+        "multiplier": -1.5,
+        "desc": "希腊语'蓝宝石'，与紫水晶词源不同"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -1.2,
+        "desc": "蓝宝石的英文名，与紫水晶易混淆颜色？不，完全不同"
+      },
+      {
+        "text": "ῥόδον",
+        "multiplier": -1.8,
+        "desc": "希腊语'玫瑰'，是'蔷薇辉石'的词源，与紫水晶无关"
+      },
+      {
+        "text": "Ruby",
+        "multiplier": -1.0,
+        "desc": "红宝石英文名，同为三大彩宝之一，易混淆命名"
+      },
+      {
+        "text": "σμάραγδος",
+        "multiplier": -2.0,
+        "desc": "希腊语'祖母绿'，古希腊已知的绿色宝石"
+      },
+      {
+        "text": "Emerald",
+        "multiplier": -1.5,
+        "desc": "祖母绿英文名，与紫水晶同为常见宝石"
+      },
+      {
+        "text": "黄水晶",
+        "multiplier": 0,
+        "desc": "石英家族黄色品种，颜色不同但品种内"
+      },
+      {
+        "text": "萤石",
+        "multiplier": -2.0,
+        "desc": "可呈紫色，硬度低，矿物不同，常被混淆"
+      },
+      {
+        "text": "坦桑石",
+        "multiplier": -2.5,
+        "desc": "黝帘石，多蓝紫色，矿物不同"
+      },
+      {
+        "text": "紫龙晶",
+        "multiplier": -2.2,
+        "desc": "硅碱钙石，商业名称，完全不同矿物"
+      },
+      {
+        "text": "合成紫水晶",
+        "multiplier": -2.5,
+        "desc": "实验室生长，物理性质相同但非天然"
+      },
+      {
+        "text": "紫色玻璃",
+        "multiplier": -3.0,
+        "desc": "人工仿品，非宝石"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "image": "images/06_pearl.png",
+    "gemName": "珍珠",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "Akoya 珍珠",
+        "multiplier": 3.5,
+        "desc": "马氏珠母贝培育的海水珍珠，日本为主要产地，圆度好光泽强"
+      },
+      {
+        "text": "阿古屋珍珠",
+        "multiplier": 3.2,
+        "desc": "Akoya 的日语音译中文名，同义"
+      },
+      {
+        "text": "海水珍珠",
+        "multiplier": 2.0,
+        "desc": "大类正确，Akoya 属于海水珍珠"
+      },
+      {
+        "text": "马氏珠母贝珍珠",
+        "multiplier": 2.5,
+        "desc": "生物学命名，Akoya 的母贝"
+      },
+      {
+        "text": "珍珠",
+        "multiplier": 1.0,
+        "desc": "大类正确，但未指明品种"
+      },
+      {
+        "text": "有机宝石",
+        "multiplier": 0.8,
+        "desc": "珍珠属于有机宝石，正确但宽泛"
+      },
+      {
+        "text": "养殖珍珠",
+        "multiplier": 1.5,
+        "desc": "Akoya 几乎全是养殖珍珠，正确"
+      },
+      {
+        "text": "南珠",
+        "multiplier": 0,
+        "desc": "中国南方所产珍珠的统称，历史上多指合浦珍珠，与 Akoya 产地不同但同为海水珍珠"
+      },
+      {
+        "text": "南洋珍珠",
+        "multiplier": -1.2,
+        "desc": "产自白蝶贝/金唇贝，尺寸更大，与 Akoya 完全不同品种"
+      },
+      {
+        "text": "大溪地珍珠",
+        "multiplier": -1.5,
+        "desc": "黑蝶贝培育，以黑色/灰色系著称，与 Akoya 混淆"
+      },
+      {
+        "text": "淡水珍珠",
+        "multiplier": -1.0,
+        "desc": "淡水环境培育，三角帆蚌等，与 Akoya 的海水来源本质不同"
+      },
+      {
+        "text": "爱迪生珍珠",
+        "multiplier": -1.8,
+        "desc": "淡水有核珍珠的商业名，常被类比 Akoya 但不同"
+      },
+      {
+        "text": "琵琶珠",
+        "multiplier": -1.2,
+        "desc": "日本琵琶湖产淡水珍珠，已近绝产，易与 Akoya 混淆产地"
+      },
+      {
+        "text": "贝珠",
+        "multiplier": -2.2,
+        "desc": "贝壳磨制仿品，非天然养殖珍珠"
+      },
+      {
+        "text": "塑料仿珍珠",
+        "multiplier": -2.8,
+        "desc": "人工仿品，完全非珍珠"
+      },
+      {
+        "text": "砗磲",
+        "multiplier": -2.0,
+        "desc": "大型贝类贝壳，有机宝石但非珍珠"
+      },
+      {
+        "text": "珊瑚",
+        "multiplier": -2.0,
+        "desc": "有机宝石，但为珊瑚虫骨骼，非珍珠"
+      },
+      {
+        "text": "keshi 珍珠",
+        "multiplier": -1.0,
+        "desc": "海水养殖过程中的副产品无核珍珠，与 Akoya 同母贝但形态不同"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "image": "images/07_turquoise.png",
+    "gemName": "绿松石",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "绿松石原石",
+        "multiplier": 3.2,
+        "desc": "中文完整名称，品种+形态，准确"
+      },
+      {
+        "text": "绿松石",
+        "multiplier": 2.8,
+        "desc": "品种正确，缺原石形态信息"
+      },
+      {
+        "text": "Turquoise",
+        "multiplier": 3.0,
+        "desc": "英文通用名称，源自法语'土耳其'，因经土耳其传入欧洲"
+      },
+      {
+        "text": "土耳其石",
+        "multiplier": 2.5,
+        "desc": "Turquoise 的中文直译，历史名称，非产自土耳其"
+      },
+      {
+        "text": "块状绿松石",
+        "multiplier": 2.0,
+        "desc": "描述原石形态，品种正确"
+      },
+      {
+        "text": "未切割绿松石",
+        "multiplier": 1.8,
+        "desc": "描述原石状态，品种正确"
+      },
+      {
+        "text": "铜铝磷酸盐矿物",
+        "multiplier": 1.5,
+        "desc": "绿松石的化学成分描述，准确"
+      },
+      {
+        "text": "磷酸盐矿物",
+        "multiplier": 1.0,
+        "desc": "矿物大类，绿松石属于磷酸盐矿物"
+      },
+      {
+        "text": "玉石",
+        "multiplier": 0.5,
+        "desc": "绿松石在广义上被归为玉石，但不够精确"
+      },
+      {
+        "text": "睡美人绿松石",
+        "multiplier": 0,
+        "desc": "美国亚利桑那州著名矿口名称，同为绿松石，产地区分不扣分"
+      },
+      {
+        "text": "波斯绿松石",
+        "multiplier": 0,
+        "desc": "伊朗产绿松石的历史名称，同为绿松石"
+      },
+      {
+        "text": "翡翠原石",
+        "multiplier": -2.2,
+        "desc": "翡翠为硬玉/软玉，跨品种，绿色但与绿松石完全不同"
+      },
+      {
+        "text": "孔雀石",
+        "multiplier": -2.0,
+        "desc": "铜矿碳酸盐矿物，绿色带环纹，常与绿松石混淆"
+      },
+      {
+        "text": "硅孔雀石",
+        "multiplier": -1.5,
+        "desc": "铜矿硅酸盐，外观与绿松石相似，易混淆"
+      },
+      {
+        "text": "染色菱镁矿",
+        "multiplier": -2.5,
+        "desc": "常见绿松石仿品，外观极似，完全非绿松石"
+      },
+      {
+        "text": "合成绿松石",
+        "multiplier": -2.5,
+        "desc": "人造绿松石，物理性质相似但非天然"
+      },
+      {
+        "text": "吉尔森绿松石",
+        "multiplier": -2.0,
+        "desc": "合成绿松石的商业名称，人造"
+      },
+      {
+        "text": "松石",
+        "multiplier": 1.2,
+        "desc": "绿松石的简称，正确"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "image": "images/08_garnet.png",
+    "gemName": "石榴石",
+    "baseChipHint": 10,
+    "difficulty": "hard",
+    "terms": [
+      {
+        "text": "锰铝榴石",
+        "multiplier": 3.5,
+        "desc": "矿物学名称，石榴石家族成员，橙黄色致色原因为锰"
+      },
+      {
+        "text": "芬达石",
+        "multiplier": 3.2,
+        "desc": "商业名称，指橙黄色锰铝榴石，因颜色似芬达汽水得名"
+      },
+      {
+        "text": "铁铝榴石",
+        "multiplier": -1.5,
+        "desc": "石榴石家族常见品种，呈红色至紫红色，非橙黄色"
+      },
+      {
+        "text": "镁铝榴石",
+        "multiplier": -1.5,
+        "desc": "石榴石家族，呈红色至紫红色，常见于地幔"
+      },
+      {
+        "text": "钙铝榴石",
+        "multiplier": -1.2,
+        "desc": "石榴石家族，常见绿色（沙弗莱）或黄色，但非锰铝榴石"
+      },
+      {
+        "text": "钙铁榴石",
+        "multiplier": -1.8,
+        "desc": "石榴石家族，翠榴石（绿色）和黄榴石（黄色）为其变种"
+      },
+      {
+        "text": "钙铬榴石",
+        "multiplier": -2.0,
+        "desc": "石榴石家族，呈翠绿色，稀有"
+      },
+      {
+        "text": "橙黄色石榴石",
+        "multiplier": 0,
+        "desc": "颜色+品种描述正确，但未指明具体品种，中性"
+      },
+      {
+        "text": "石榴石",
+        "multiplier": 0,
+        "desc": "品种大类正确，未指明具体亚种"
+      },
+      {
+        "text": "桂榴石",
+        "multiplier": -1.0,
+        "desc": "钙铝榴石的黄色变种，商业上常与芬达石混淆"
+      },
+      {
+        "text": "沙弗莱石",
+        "multiplier": -2.2,
+        "desc": "绿色钙铝榴石，颜色完全错误"
+      },
+      {
+        "text": "翠榴石",
+        "multiplier": -2.5,
+        "desc": "绿色钙铁榴石，颜色完全不同"
+      },
+      {
+        "text": "黄水晶",
+        "multiplier": -1.8,
+        "desc": "石英家族，黄色至橙黄色，常被误认为芬达石"
+      },
+      {
+        "text": "橙色蓝宝石",
+        "multiplier": -2.0,
+        "desc": "刚玉家族，橙黄色（帕帕拉恰为粉橙），不同矿物"
+      },
+      {
+        "text": "锆石",
+        "multiplier": -1.5,
+        "desc": "硅酸锆矿物，可呈橙黄色，但矿物不同"
+      },
+      {
+        "text": "日光石",
+        "multiplier": -1.2,
+        "desc": "长石家族，橙红色至橙黄色，具砂金效应"
+      },
+      {
+        "text": "合成锰铝榴石",
+        "multiplier": -2.5,
+        "desc": "实验室生长，物理性质相同但非天然"
+      },
+      {
+        "text": "橙色玻璃",
+        "multiplier": -3.0,
+        "desc": "人工仿品，非宝石"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "image": "images/09_aquamarine.jpg",
+    "gemName": "海蓝宝石",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "海蓝宝石",
+        "multiplier": 3.2,
+        "desc": "中文标准名称，绿柱石家族蓝色品种"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，刚玉家族蓝色品种，名称相似但矿物不同"
+      },
+      {
+        "text": "蓝柱石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，名称极似，但为不同矿物（BeAlSiO₄OH）"
+      },
+      {
+        "text": "蓝晶石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，蓝色硅酸盐矿物"
+      },
+      {
+        "text": "Aquamarine",
+        "multiplier": 3.5,
+        "desc": "英文名称，源自拉丁语'海水'"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -1.8,
+        "desc": "英文混淆，蓝宝石英文名"
+      },
+      {
+        "text": "Emerald",
+        "multiplier": -1.5,
+        "desc": "英文混淆，祖母绿英文名，同家族不同色"
+      },
+      {
+        "text": "Topaz",
+        "multiplier": -1.5,
+        "desc": "英文混淆，托帕石英文名"
+      },
+      {
+        "text": "绿柱石",
+        "multiplier": 1.5,
+        "desc": "矿物学大类，正确但宽泛"
+      },
+      {
+        "text": "祖母绿",
+        "multiplier": -1.0,
+        "desc": "绿柱石家族绿色品种，同家族不同色"
+      },
+      {
+        "text": "摩根石",
+        "multiplier": -1.0,
+        "desc": "绿柱石家族粉色品种，同家族不同色"
+      },
+      {
+        "text": "金色绿柱石",
+        "multiplier": -1.0,
+        "desc": "绿柱石家族黄色品种，同家族不同色"
+      },
+      {
+        "text": "蓝色托帕石",
+        "multiplier": -1.8,
+        "desc": "市场上最常见的海蓝宝替代品"
+      },
+      {
+        "text": "蓝色碧玺",
+        "multiplier": -1.5,
+        "desc": "碧玺家族蓝色品种"
+      },
+      {
+        "text": "坦桑石",
+        "multiplier": -2.0,
+        "desc": "蓝紫色黝帘石"
+      },
+      {
+        "text": "帕拉伊巴碧玺",
+        "multiplier": -2.2,
+        "desc": "铜致色蓝绿色碧玺"
+      },
+      {
+        "text": "合成海蓝宝石",
+        "multiplier": -2.5,
+        "desc": "实验室生长"
+      },
+      {
+        "text": "蓝色玻璃",
+        "multiplier": -3.0,
+        "desc": "人工仿品"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "image": "images/10_jade.jpg",
+    "gemName": "翡翠",
+    "baseChipHint": 10,
+    "difficulty": "easy",
+    "terms": [
+      {
+        "text": "Jadeite",
+        "multiplier": 3.8,
+        "desc": "英文矿物学标准名称，翡翠的准确国际称谓"
+      },
+      {
+        "text": "翡翠",
+        "multiplier": 3.5,
+        "desc": "中文国家标准名称，硬玉为主组成的玉石"
+      },
+      {
+        "text": "硬玉",
+        "multiplier": 3.2,
+        "desc": "矿物学中文名称，翡翠的主要组成矿物"
+      },
+      {
+        "text": "缅甸玉",
+        "multiplier": 2.8,
+        "desc": "商业产地命名，缅甸是翡翠最著名产地，行业常用"
+      },
+      {
+        "text": "Jade",
+        "multiplier": 1.2,
+        "desc": "英文泛指玉石，包括翡翠和软玉，大类正确但不精确"
+      },
+      {
+        "text": "玉石",
+        "multiplier": 0.8,
+        "desc": "中文大类统称，范围过宽，未限定种类"
+      },
+      {
+        "text": "软玉",
+        "multiplier": -2.2,
+        "desc": "透闪石-阳起石类，与翡翠（硬玉）矿物组成完全不同"
+      },
+      {
+        "text": "Nephrite",
+        "multiplier": -2.2,
+        "desc": "软玉英文名，与Jadeite易混淆"
+      },
+      {
+        "text": "和田玉",
+        "multiplier": -1.8,
+        "desc": "软玉代表品种，非翡翠"
+      },
+      {
+        "text": "独山玉",
+        "multiplier": -1.5,
+        "desc": "中国四大名玉之一，硅酸盐矿物，非硬玉"
+      },
+      {
+        "text": "岫玉",
+        "multiplier": -1.5,
+        "desc": "蛇纹石玉，常见但非翡翠"
+      },
+      {
+        "text": "水沫子",
+        "multiplier": -1.8,
+        "desc": "钠长石玉，常充填或仿翡翠"
+      },
+      {
+        "text": "绿玉髓",
+        "multiplier": -1.2,
+        "desc": "石英质玉，颜色相似但结构不同"
+      },
+      {
+        "text": "绿色石英岩",
+        "multiplier": -1.2,
+        "desc": "石英岩，可染色仿翡翠"
+      },
+      {
+        "text": "东陵石",
+        "multiplier": -1.0,
+        "desc": "石英质玉，含铬云母呈绿色，常混淆"
+      },
+      {
+        "text": "B玉",
+        "multiplier": -2.5,
+        "desc": "漂白注胶处理翡翠，非天然，行业中属劣质处理品"
+      },
+      {
+        "text": "C玉",
+        "multiplier": -2.8,
+        "desc": "染色处理翡翠，非天然，严重人工处理"
+      },
+      {
+        "text": "马来玉",
+        "multiplier": -3.0,
+        "desc": "染色石英岩，常见翡翠仿品，纯误导"
+      },
+      {
+        "text": "玻璃仿翡翠",
+        "multiplier": -3.5,
+        "desc": "人工玻璃仿品，非结晶矿物"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "image": "images/11_opal.png",
+    "gemName": "欧泊（蛋白石）",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "二氧化硅",
+        "multiplier": 4.0,
+        "desc": "欧泊的化学成分，含水的非晶质二氧化硅"
+      },
+      {
+        "text": "非晶质",
+        "multiplier": 3.6,
+        "desc": "欧泊为非晶质体，不具有晶体结构"
+      },
+      {
+        "text": "蛋白石",
+        "multiplier": 3.3,
+        "desc": "欧泊的矿物学名称"
+      },
+      {
+        "text": "Opal",
+        "multiplier": 3.0,
+        "desc": "英文矿物名，欧泊统称"
+      },
+      {
+        "text": "黑欧泊",
+        "multiplier": 2.8,
+        "desc": "中文标准名称，体色为深色的欧泊"
+      },
+      {
+        "text": "Black Opal",
+        "multiplier": 3.2,
+        "desc": "英文名称，特指体色深色的欧泊"
+      },
+      {
+        "text": "黑蛋白石",
+        "multiplier": 2.2,
+        "desc": "黑欧泊的中文别称"
+      },
+      {
+        "text": "硅酸盐矿物",
+        "multiplier": -1.0,
+        "desc": "中文混淆，欧泊为非晶质二氧化硅，不属于硅酸盐矿物"
+      },
+      {
+        "text": "架状硅酸盐",
+        "multiplier": -1.2,
+        "desc": "中文混淆，长石类属架状硅酸盐，欧泊不属于"
+      },
+      {
+        "text": "晶体",
+        "multiplier": -1.5,
+        "desc": "中文混淆，欧泊是非晶质，不具有晶体结构"
+      },
+      {
+        "text": "白欧泊",
+        "multiplier": -1.5,
+        "desc": "中文混淆，体色浅白，与黑欧泊相对"
+      },
+      {
+        "text": "火欧泊",
+        "multiplier": -1.5,
+        "desc": "中文混淆，体色橙红至黄色"
+      },
+      {
+        "text": "水晶欧泊",
+        "multiplier": -1.2,
+        "desc": "中文混淆，体色透明至半透明"
+      },
+      {
+        "text": "砾石欧泊",
+        "multiplier": -1.0,
+        "desc": "中文混淆，与母岩共生的薄层欧泊"
+      },
+      {
+        "text": "White Opal",
+        "multiplier": -1.5,
+        "desc": "英文混淆，白欧泊英文名"
+      },
+      {
+        "text": "Fire Opal",
+        "multiplier": -1.5,
+        "desc": "英文混淆，火欧泊英文名"
+      },
+      {
+        "text": "Boulder Opal",
+        "multiplier": -1.0,
+        "desc": "英文混淆，砾石欧泊英文名"
+      },
+      {
+        "text": "合成欧泊",
+        "multiplier": -2.2,
+        "desc": "中文混淆，实验室生长"
+      },
+      {
+        "text": "吉尔森欧泊",
+        "multiplier": -2.0,
+        "desc": "中文混淆，合成欧泊商业名"
+      },
+      {
+        "text": "玻璃仿欧泊",
+        "multiplier": -2.5,
+        "desc": "人工仿品"
+      },
+      {
+        "text": "拉长石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，长石具晕彩效应"
+      },
+      {
+        "text": "斑彩石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，菊石化石具虹彩效应"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "image": "images/12_topaz.jpg",
+    "gemName": "托帕石（黄玉）",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "蓝色托帕石",
+        "multiplier": 3.0,
+        "desc": "中文标准名称，托帕石的蓝色品种"
+      },
+      {
+        "text": "蓝托帕",
+        "multiplier": 2.5,
+        "desc": "蓝色托帕石的常用中文简称"
+      },
+      {
+        "text": "Blue Topaz",
+        "multiplier": 3.5,
+        "desc": "英文名称，国际通用"
+      },
+      {
+        "text": "托帕石",
+        "multiplier": 1.0,
+        "desc": "中文大类正确，未指定蓝色品种"
+      },
+      {
+        "text": "Topaz",
+        "multiplier": 0.8,
+        "desc": "英文大类正确，未指定蓝色品种"
+      },
+      {
+        "text": "黄玉",
+        "multiplier": 0.5,
+        "desc": "托帕石的中文矿物学旧称，因黄色多见得名，现多称托帕石"
+      },
+      {
+        "text": "海蓝宝石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，绿柱石家族蓝色品种，市场上常与蓝色托帕石混淆"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉家族，硬度更高，价值更高"
+      },
+      {
+        "text": "蓝色碧玺",
+        "multiplier": -1.5,
+        "desc": "中文混淆，碧玺家族蓝色品种"
+      },
+      {
+        "text": "蓝色锆石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，锆石经热处理可得蓝色"
+      },
+      {
+        "text": "尖晶石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，可有蓝色品种，单折射"
+      },
+      {
+        "text": "Aquamarine",
+        "multiplier": -1.8,
+        "desc": "英文混淆，海蓝宝石英文名"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -2.0,
+        "desc": "英文混淆，蓝宝石英文名"
+      },
+      {
+        "text": "London Blue Topaz",
+        "multiplier": 1.5,
+        "desc": "英文商业名称，伦敦蓝为蓝色托帕石的一种色调分级，仍为蓝色托帕石"
+      },
+      {
+        "text": "Swiss Blue Topaz",
+        "multiplier": 1.5,
+        "desc": "英文商业名称，瑞士蓝为蓝色托帕石的一种色调分级，仍为蓝色托帕石"
+      },
+      {
+        "text": "Sky Blue Topaz",
+        "multiplier": 1.5,
+        "desc": "英文商业名称，天空蓝为蓝色托帕石的一种色调分级，仍为蓝色托帕石"
+      },
+      {
+        "text": "合成蓝色托帕石",
+        "multiplier": -2.5,
+        "desc": "实验室生长，天然托帕石稀少，合成品常见"
+      },
+      {
+        "text": "蓝色玻璃",
+        "multiplier": -3.0,
+        "desc": "人工仿品，非宝石"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "image": "images/13_tourmaline.png",
+    "gemName": "碧玺（电气石）",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "Rubellite",
+        "multiplier": 3.8,
+        "desc": "英文国际商业名称，特指高品质红色碧玺，源自拉丁语'红宝石色'"
+      },
+      {
+        "text": "卢比莱碧玺",
+        "multiplier": 3.5,
+        "desc": "Rubellite 的规范中文音译，珠宝行业认可的商业品种名"
+      },
+      {
+        "text": "红色碧玺",
+        "multiplier": 3.2,
+        "desc": "中文矿物学标准命名，碧玺按颜色分类的正式名称"
+      },
+      {
+        "text": "红碧玺",
+        "multiplier": 2.8,
+        "desc": "红色碧玺的常用简称，行业口语广泛使用"
+      },
+      {
+        "text": "红宝碧玺",
+        "multiplier": 2.2,
+        "desc": "卢比莱碧玺的中文别称，带有商业渲染色彩"
+      },
+      {
+        "text": "碧玺",
+        "multiplier": 1.0,
+        "desc": "中文大类正确，但未限定红色品种，信息不完整"
+      },
+      {
+        "text": "Tourmaline",
+        "multiplier": 0.8,
+        "desc": "英文大类正确，未指定红色品种"
+      },
+      {
+        "text": "红色电气石",
+        "multiplier": 1.5,
+        "desc": "矿物学中文全称，比'碧玺'更学术，但日常较少用"
+      },
+      {
+        "text": "红宝石",
+        "multiplier": -2.5,
+        "desc": "常见混淆，刚玉家族，化学成分不同（Al₂O₃ vs 电气石）"
+      },
+      {
+        "text": "Ruby",
+        "multiplier": -2.5,
+        "desc": "英文混淆，对应红宝石"
+      },
+      {
+        "text": "红色尖晶石",
+        "multiplier": -2.0,
+        "desc": "混淆，尖晶石MgAl₂O₄，单折射，与碧玺双折射不同"
+      },
+      {
+        "text": "Red Spinel",
+        "multiplier": -2.0,
+        "desc": "英文混淆"
+      },
+      {
+        "text": "粉蓝宝",
+        "multiplier": -1.8,
+        "desc": "粉色蓝宝石，刚玉系，常与粉色系碧玺混淆"
+      },
+      {
+        "text": "Pink Sapphire",
+        "multiplier": -1.8,
+        "desc": "英文混淆"
+      },
+      {
+        "text": "红色石榴石",
+        "multiplier": -1.5,
+        "desc": "石榴石族，均质体，与碧玺非均质体不同"
+      },
+      {
+        "text": "红色锆石",
+        "multiplier": -1.2,
+        "desc": "锆石，高折射率，与碧玺区分明显"
+      },
+      {
+        "text": "粉晶",
+        "multiplier": -1.0,
+        "desc": "石英类，完全不同的矿物，低级混淆"
+      },
+      {
+        "text": "合成卢比莱碧玺",
+        "multiplier": -2.8,
+        "desc": "实验室合成，化学成分相同但非天然，价值天壤"
+      },
+      {
+        "text": "红色玻璃",
+        "multiplier": -3.5,
+        "desc": "人造仿品，非结晶矿物，最严重错误"
+      },
+      {
+        "text": "苏联钻",
+        "multiplier": -3.0,
+        "desc": "立方氧化锆，完全无关，纯噱头命名"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "image": "images/14_tanzanite.png",
+    "gemName": "坦桑石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "坦桑石",
+        "multiplier": 3.2,
+        "desc": "中文标准名称，黝帘石的蓝色至蓝紫色宝石品种"
+      },
+      {
+        "text": "坦桑尼亚石",
+        "multiplier": 2.8,
+        "desc": "坦桑石的中文全称，因产自坦桑尼亚得名"
+      },
+      {
+        "text": "Tanzanite",
+        "multiplier": 3.5,
+        "desc": "英文名称，由蒂芙尼公司命名并推广"
+      },
+      {
+        "text": "黝帘石",
+        "multiplier": 1.5,
+        "desc": "矿物学名称，坦桑石为黝帘石的蓝色至紫蓝色宝石级变种"
+      },
+      {
+        "text": "Zoisite",
+        "multiplier": 1.2,
+        "desc": "英文矿物名，黝帘石的英文对应"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉家族蓝色品种，硬度9，传统名贵宝石"
+      },
+      {
+        "text": "海蓝宝石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，绿柱石家族蓝色品种，硬度7.5-8"
+      },
+      {
+        "text": "蓝晶石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，蓝色硅酸盐矿物，硬度方向性明显"
+      },
+      {
+        "text": "堇青石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，水蓝宝石，强三色性，外观与坦桑石相似"
+      },
+      {
+        "text": "蓝色碧玺",
+        "multiplier": -1.5,
+        "desc": "中文混淆，碧玺蓝色品种"
+      },
+      {
+        "text": "蓝色锆石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，锆石蓝色品种"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -2.0,
+        "desc": "英文混淆，蓝宝石英文名"
+      },
+      {
+        "text": "Aquamarine",
+        "multiplier": -1.5,
+        "desc": "英文混淆，海蓝宝石英文名"
+      },
+      {
+        "text": "Iolite",
+        "multiplier": -1.5,
+        "desc": "英文混淆，堇青石英文名，外观相似"
+      },
+      {
+        "text": "蓝色玻璃",
+        "multiplier": -2.5,
+        "desc": "人工仿品，非宝石"
+      },
+      {
+        "text": "合成坦桑石",
+        "multiplier": -2.2,
+        "desc": "实验室生长，天然坦桑石较为稀有"
+      },
+      {
+        "text": "丹泉石",
+        "multiplier": 2.5,
+        "desc": "坦桑石的另一种中文音译名称，同义"
+      },
+      {
+        "text": "蓝紫色宝石",
+        "multiplier": 0.5,
+        "desc": "颜色描述正确，但未指明具体品种"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "image": "images/15_olivine.jpg",
+    "gemName": "橄榄石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "橄榄石",
+        "multiplier": 3.2,
+        "desc": "中文标准名称，镁铁硅酸盐矿物，宝石级橄榄石呈黄绿色至绿黄色"
+      },
+      {
+        "text": "Peridot",
+        "multiplier": 3.5,
+        "desc": "英文名称，宝石级橄榄石的专称，源自法语"
+      },
+      {
+        "text": "Olivine",
+        "multiplier": 2.0,
+        "desc": "矿物学英文名称，橄榄石族矿物的统称"
+      },
+      {
+        "text": "黄绿色宝石",
+        "multiplier": 0.8,
+        "desc": "颜色描述正确，但未指明具体品种"
+      },
+      {
+        "text": "祖母绿",
+        "multiplier": -1.8,
+        "desc": "中文混淆，绿柱石家族绿色品种，颜色偏翠绿"
+      },
+      {
+        "text": "金绿宝石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，铍铝氧化物，黄绿色至绿色，硬度8.5"
+      },
+      {
+        "text": "黄水晶",
+        "multiplier": -1.5,
+        "desc": "中文混淆，石英家族黄色至橙黄色品种"
+      },
+      {
+        "text": "绿色碧玺",
+        "multiplier": -1.5,
+        "desc": "中文混淆，碧玺家族绿色品种"
+      },
+      {
+        "text": "绿色锆石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，锆石绿色品种"
+      },
+      {
+        "text": "绿柱石",
+        "multiplier": -1.0,
+        "desc": "中文混淆，矿物大类，祖母绿、海蓝宝石等属此家族"
+      },
+      {
+        "text": "Emerald",
+        "multiplier": -1.8,
+        "desc": "英文混淆，祖母绿英文名"
+      },
+      {
+        "text": "Chrysoberyl",
+        "multiplier": -1.5,
+        "desc": "英文混淆，金绿宝石英文名"
+      },
+      {
+        "text": "Citrine",
+        "multiplier": -1.5,
+        "desc": "英文混淆，黄水晶英文名"
+      },
+      {
+        "text": "绿色玻璃",
+        "multiplier": -2.5,
+        "desc": "人工仿品，非宝石"
+      },
+      {
+        "text": "合成橄榄石",
+        "multiplier": -2.2,
+        "desc": "实验室生长，橄榄石合成较少见但仍存在"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "image": "images/16_citrine.png",
+    "gemName": "黄水晶",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "二氧化硅",
+        "multiplier": 3.8,
+        "desc": "化学成分，黄水晶的化学组成，石英家族核心"
+      },
+      {
+        "text": "SiO₂",
+        "multiplier": 3.6,
+        "desc": "二氧化硅的化学式，科学表述"
+      },
+      {
+        "text": "石英",
+        "multiplier": 3.2,
+        "desc": "矿物学大类，黄水晶为石英的黄色变种"
+      },
+      {
+        "text": "Quartz",
+        "multiplier": 3.0,
+        "desc": "石英的英文矿物名"
+      },
+      {
+        "text": "黄水晶",
+        "multiplier": 2.5,
+        "desc": "中文标准名称，石英家族黄色品种"
+      },
+      {
+        "text": "Citrine",
+        "multiplier": 2.8,
+        "desc": "英文名称，源自法语'柠檬'，形容其柠檬黄色"
+      },
+      {
+        "text": "黄色石英",
+        "multiplier": 2.2,
+        "desc": "矿物学描述，黄水晶的准确成分定义"
+      },
+      {
+        "text": "黄晶",
+        "multiplier": 2.0,
+        "desc": "黄水晶的常用中文简称"
+      },
+      {
+        "text": "托帕石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，托帕石旧称'黄玉'，常与黄水晶混淆"
+      },
+      {
+        "text": "Topaz",
+        "multiplier": -1.8,
+        "desc": "英文混淆，托帕石英文名"
+      },
+      {
+        "text": "黄色蓝宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉家族黄色品种，硬度9"
+      },
+      {
+        "text": "Yellow Sapphire",
+        "multiplier": -2.0,
+        "desc": "英文混淆，黄色蓝宝石英文名"
+      },
+      {
+        "text": "金绿宝石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，铍铝氧化物，黄绿色至黄色"
+      },
+      {
+        "text": "Chrysoberyl",
+        "multiplier": -1.8,
+        "desc": "英文混淆，金绿宝石英文名"
+      },
+      {
+        "text": "黄色锆石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，锆石黄色品种"
+      },
+      {
+        "text": "黄色碧玺",
+        "multiplier": -1.5,
+        "desc": "中文混淆，碧玺家族黄色品种"
+      },
+      {
+        "text": "合成黄水晶",
+        "multiplier": -2.5,
+        "desc": "实验室生长，物理性质相同但非天然"
+      },
+      {
+        "text": "黄色玻璃",
+        "multiplier": -3.0,
+        "desc": "人工仿品，非宝石"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "image": "images/17_LapisLazuli.png",
+    "gemName": "青金石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "硅酸盐矿物",
+        "multiplier": 3.8,
+        "desc": "矿物大类，青金石为架状硅酸盐矿物"
+      },
+      {
+        "text": "天青石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，青金石的组成矿物之一（蓝方石）曾误译，也指硫酸锶矿物"
+      },
+      {
+        "text": "Lapis Lazuli",
+        "multiplier": 3.0,
+        "desc": "英文名称，国际通用，拉丁语意为'蓝色的石头'"
+      },
+      {
+        "text": "青金石",
+        "multiplier": 2.8,
+        "desc": "中文标准名称"
+      },
+      {
+        "text": "青金",
+        "multiplier": 2.2,
+        "desc": "青金石的常用中文简称"
+      },
+      {
+        "text": "天蓝石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，不同矿物（Mg₃Al₁₀(PO₄)₇(OH)₂），名称相似"
+      },
+      {
+        "text": "蓝铜矿",
+        "multiplier": -1.8,
+        "desc": "中文混淆，铜矿碳酸盐，深蓝色，常与青金石混淆"
+      },
+      {
+        "text": "蓝纹石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，染色或合成仿青金石材料，商业名称"
+      },
+      {
+        "text": "染色玉髓",
+        "multiplier": -2.0,
+        "desc": "中文混淆，染色石英类玉石，常见青金石仿品"
+      },
+      {
+        "text": "合成青金石",
+        "multiplier": -2.5,
+        "desc": "实验室生长，人造青金石"
+      },
+      {
+        "text": "方钠石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，青金石为方钠石族矿物，但方钠石本身不等于青金石"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉家族蓝色品种，完全不同矿物"
+      },
+      {
+        "text": "Lazurite",
+        "multiplier": 2.5,
+        "desc": "青金石的主要组成矿物名称，严格说青金石并非单一方钠石族矿物"
+      },
+      {
+        "text": "Azurite",
+        "multiplier": -1.8,
+        "desc": "英文混淆，蓝铜矿英文名"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -2.0,
+        "desc": "英文混淆，蓝宝石英文名"
+      },
+      {
+        "text": "Sodalite",
+        "multiplier": -1.8,
+        "desc": "英文混淆，方钠石英文名"
+      },
+      {
+        "text": "蓝色石头",
+        "multiplier": 0.5,
+        "desc": "颜色+形态描述，正确但过于宽泛"
+      },
+      {
+        "text": "蓝色玻璃仿品",
+        "multiplier": -3.0,
+        "desc": "人工仿品，非宝石"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "image": "images/18_moonstone.png",
+    "gemName": "月光石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "正长石",
+        "multiplier": 3.8,
+        "desc": "矿物学名称，月光石是正长石和钠长石交互形成的宝石"
+      },
+      {
+        "text": "钾长石",
+        "multiplier": 3.5,
+        "desc": "长石大类，正长石属于钾长石亚族"
+      },
+      {
+        "text": "长石",
+        "multiplier": 3.2,
+        "desc": "矿物大类，月光石属于长石家族"
+      },
+      {
+        "text": "Moonstone",
+        "multiplier": 3.0,
+        "desc": "英文名称，国际通用"
+      },
+      {
+        "text": "月光石",
+        "multiplier": 2.8,
+        "desc": "中文标准名称"
+      },
+      {
+        "text": "月长石",
+        "multiplier": 2.5,
+        "desc": "月光石的别称"
+      },
+      {
+        "text": "冰长石",
+        "multiplier": 2.0,
+        "desc": "月光石中具特殊蓝白色晕彩的变种"
+      },
+      {
+        "text": "硅酸盐矿物",
+        "multiplier": 3.6,
+        "desc": "长石为架状硅酸盐，月光石本质属硅酸盐"
+      },
+      {
+        "text": "Albite",
+        "multiplier": -1.5,
+        "desc": "英文混淆，钠长石英文名，月光石含钠长石但钠长石本身不等于月光石"
+      },
+      {
+        "text": "Orthoclase",
+        "multiplier": -1.2,
+        "desc": "英文混淆，正长石英文名，月光石的主要矿物成分之一，但正长石≠月光石"
+      },
+      {
+        "text": "拉长石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，长石家族另一品种，具变彩（晕彩）效应"
+      },
+      {
+        "text": "日光石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，长石家族另一品种，具砂金效应"
+      },
+      {
+        "text": "天河石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，长石家族另一品种，蓝绿色微斜长石"
+      },
+      {
+        "text": "玻璃体长石",
+        "multiplier": -1.0,
+        "desc": "混淆，透长石，透明长石，非月光石"
+      },
+      {
+        "text": "蛋白石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，欧泊，具变彩效应，外观可类似月光石"
+      },
+      {
+        "text": "合成月光石",
+        "multiplier": -2.5,
+        "desc": "实验室生长，人造月光石"
+      },
+      {
+        "text": "玻璃仿月光石",
+        "multiplier": -3.0,
+        "desc": "人工仿品"
+      },
+      {
+        "text": "蓝色晕彩宝石",
+        "multiplier": 0.5,
+        "desc": "描述月光石的光学效应，正确但宽泛"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "image": "images/19_spinel.png",
+    "gemName": "尖晶石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "镁铝氧化物",
+        "multiplier": 4.0,
+        "desc": "尖晶石的化学成分，镁铝氧矿物"
+      },
+      {
+        "text": "MgAl₂O₄",
+        "multiplier": 3.8,
+        "desc": "尖晶石的化学式，科学表述"
+      },
+      {
+        "text": "氧化物矿物",
+        "multiplier": 3.5,
+        "desc": "矿物大类，尖晶石属于氧化物矿物"
+      },
+      {
+        "text": "等轴晶系",
+        "multiplier": 3.2,
+        "desc": "晶体结构，尖晶石为等轴晶系，各向同性"
+      },
+      {
+        "text": "尖晶石",
+        "multiplier": 2.8,
+        "desc": "中文标准名称"
+      },
+      {
+        "text": "Spinel",
+        "multiplier": 3.0,
+        "desc": "英文名称，国际通用"
+      },
+      {
+        "text": "红宝石",
+        "multiplier": -2.2,
+        "desc": "中文混淆，刚玉家族红色品种，历史上与红色尖晶石长期混淆"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉家族蓝色品种"
+      },
+      {
+        "text": "石榴石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，硅酸盐矿物，可有红色品种"
+      },
+      {
+        "text": "铁铝榴石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，石榴石家族红色品种"
+      },
+      {
+        "text": "镁铝榴石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，石榴石家族红色品种，名称含'镁铝'"
+      },
+      {
+        "text": "红柱石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，硅酸盐矿物，红色至褐色"
+      },
+      {
+        "text": "Ruby",
+        "multiplier": -2.2,
+        "desc": "英文混淆，红宝石英文名"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -2.0,
+        "desc": "英文混淆，蓝宝石英文名"
+      },
+      {
+        "text": "Garnet",
+        "multiplier": -1.8,
+        "desc": "英文混淆，石榴石英文名"
+      },
+      {
+        "text": "合成尖晶石",
+        "multiplier": -2.5,
+        "desc": "实验室生长，人造尖晶石，常见于仿其他宝石"
+      },
+      {
+        "text": "玻璃仿尖晶石",
+        "multiplier": -3.0,
+        "desc": "人工仿品"
+      },
+      {
+        "text": "刚玉",
+        "multiplier": -2.0,
+        "desc": "中文混淆，刚玉与尖晶石常共生产出，物理性质不同"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "image": "images/20_Morganite.png",
+    "gemName": "摩根石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "铍铝硅酸盐",
+        "multiplier": 4.0,
+        "desc": "摩根石的化学成分，绿柱石的化学组成"
+      },
+      {
+        "text": "铝铍硅酸盐",
+        "multiplier": 3.8,
+        "desc": "铍铝硅酸盐的另一种表述顺序"
+      },
+      {
+        "text": "硅酸盐矿物",
+        "multiplier": 3.2,
+        "desc": "矿物大类，摩根石属于硅酸盐矿物"
+      },
+      {
+        "text": "环状硅酸盐",
+        "multiplier": 3.0,
+        "desc": "绿柱石的晶体结构细分，摩根石属环状硅酸盐"
+      },
+      {
+        "text": "绿柱石",
+        "multiplier": 3.5,
+        "desc": "矿物学名称，摩根石为绿柱石的粉色品种"
+      },
+      {
+        "text": "Beryl",
+        "multiplier": 3.3,
+        "desc": "英文矿物名，绿柱石"
+      },
+      {
+        "text": "摩根石",
+        "multiplier": 2.8,
+        "desc": "中文标准名称"
+      },
+      {
+        "text": "Morganite",
+        "multiplier": 3.0,
+        "desc": "英文名称，以JP·摩根命名"
+      },
+      {
+        "text": "粉色绿柱石",
+        "multiplier": 2.5,
+        "desc": "摩根石的矿物学描述"
+      },
+      {
+        "text": "镁铝硅酸盐",
+        "multiplier": -1.8,
+        "desc": "中文混淆，与'铍铝硅酸盐'同为硅酸盐，但为镁铝成分（堇青石等）"
+      },
+      {
+        "text": "铁铝硅酸盐",
+        "multiplier": -1.8,
+        "desc": "中文混淆，与'铍铝硅酸盐'同为硅酸盐，但为铁铝成分（石榴石等）"
+      },
+      {
+        "text": "钙铝硅酸盐",
+        "multiplier": -1.8,
+        "desc": "中文混淆，与'铍铝硅酸盐'同为硅酸盐，但为钙铝成分（钙铝榴石等）"
+      },
+      {
+        "text": "镁铁硅酸盐",
+        "multiplier": -1.5,
+        "desc": "中文混淆，橄榄石等属此成分"
+      },
+      {
+        "text": "架状硅酸盐",
+        "multiplier": -1.2,
+        "desc": "中文混淆，长石属架状硅酸盐，与环状硅酸盐不同"
+      },
+      {
+        "text": "粉色刚玉",
+        "multiplier": -2.0,
+        "desc": "中文混淆，粉橙色的帕帕拉恰蓝宝石即为粉色刚玉的一种"
+      },
+      {
+        "text": "粉色尖晶石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，尖晶石的粉色品种，非绿柱石"
+      },
+      {
+        "text": "紫锂辉石",
+        "multiplier": -2.2,
+        "desc": "中文混淆，粉色至紫色锂辉石，常与摩根石混淆"
+      },
+      {
+        "text": "粉晶",
+        "multiplier": -1.8,
+        "desc": "中文混淆，粉色石英，完全不同矿物"
+      },
+      {
+        "text": "铍铝硅酸玻璃",
+        "multiplier": -2.8,
+        "desc": "人工仿品，仅含铍铝硅成分但非晶体"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "image": "images/21_left.png",
+    "gemName": "啤酒底儿",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "二氧化硅",
+        "multiplier": 4.0,
+        "desc": "玻璃的主要成分"
+      },
+      {
+        "text": "SiO₂",
+        "multiplier": 3.8,
+        "desc": "二氧化硅的化学式"
+      },
+      {
+        "text": "非晶质",
+        "multiplier": 3.6,
+        "desc": "玻璃为无定形体，不具有晶体结构"
+      },
+      {
+        "text": "玻璃",
+        "multiplier": 3.5,
+        "desc": "人工熔融产物"
+      },
+      {
+        "text": "Glass",
+        "multiplier": 3.2,
+        "desc": "英文名称"
+      },
+      {
+        "text": "绿色玻璃",
+        "multiplier": 3.0,
+        "desc": "含铁或铬着色的玻璃"
+      },
+      {
+        "text": "啤酒瓶底儿",
+        "multiplier": 2.8,
+        "desc": "通俗名称，绿色玻璃的一种"
+      },
+      {
+        "text": "钠钙玻璃",
+        "multiplier": 2.5,
+        "desc": "啤酒瓶的玻璃材质类型"
+      },
+      {
+        "text": "沙弗莱石",
+        "multiplier": -2.8,
+        "desc": "中文混淆，本题伪装对象"
+      },
+      {
+        "text": "Tsavorite",
+        "multiplier": -2.8,
+        "desc": "英文混淆，沙弗莱石英文名"
+      },
+      {
+        "text": "祖母绿",
+        "multiplier": -2.5,
+        "desc": "中文混淆，天然绿色宝石"
+      },
+      {
+        "text": "绿色碧玺",
+        "multiplier": -2.2,
+        "desc": "中文混淆，天然绿色宝石"
+      },
+      {
+        "text": "橄榄石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，天然黄绿色宝石"
+      },
+      {
+        "text": "翡翠",
+        "multiplier": -2.2,
+        "desc": "中文混淆，天然绿色玉石"
+      },
+      {
+        "text": "绿玉髓",
+        "multiplier": -1.8,
+        "desc": "中文混淆，天然绿色石英质玉"
+      },
+      {
+        "text": "钙铝硅酸盐",
+        "multiplier": -1.5,
+        "desc": "中文混淆，沙弗莱石的成分"
+      },
+      {
+        "text": "晶体",
+        "multiplier": -1.5,
+        "desc": "中文混淆，玻璃不具有晶体结构"
+      },
+      {
+        "text": "合成沙弗莱石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，虽为人造但有晶体结构"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "image": "images/22_right.png",
+    "gemName": "莎弗莱",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "钙铝硅酸盐",
+        "multiplier": 4.0,
+        "desc": "沙弗莱石的化学成分，钙铝榴石的化学组成"
+      },
+      {
+        "text": "Ca₃Al₂(SiO₄)₃",
+        "multiplier": 3.8,
+        "desc": "钙铝榴石的化学式"
+      },
+      {
+        "text": "硅酸盐矿物",
+        "multiplier": 3.5,
+        "desc": "矿物大类，沙弗莱石属于岛状硅酸盐"
+      },
+      {
+        "text": "岛状硅酸盐",
+        "multiplier": 3.2,
+        "desc": "石榴石的晶体结构细分"
+      },
+      {
+        "text": "石榴石",
+        "multiplier": 3.5,
+        "desc": "矿物学名称，沙弗莱石为石榴石的绿色品种"
+      },
+      {
+        "text": "钙铝榴石",
+        "multiplier": 3.3,
+        "desc": "石榴石家族成员，沙弗莱石的矿物学正名"
+      },
+      {
+        "text": "沙弗莱石",
+        "multiplier": 3.0,
+        "desc": "中文商业名称，以肯尼亚沙弗国家公园命名"
+      },
+      {
+        "text": "Tsavorite",
+        "multiplier": 3.2,
+        "desc": "英文商业名称"
+      },
+      {
+        "text": "绿色钙铝榴石",
+        "multiplier": 2.8,
+        "desc": "沙弗莱石的矿物学描述"
+      },
+      {
+        "text": "铬钒致色",
+        "multiplier": 2.5,
+        "desc": "沙弗莱石的致色元素，呈现翠绿色"
+      },
+      {
+        "text": "钙铁硅酸盐",
+        "multiplier": -1.8,
+        "desc": "中文混淆，与'钙铝硅酸盐'同为钙硅酸盐，但为铁（翠榴石）"
+      },
+      {
+        "text": "钙铬硅酸盐",
+        "multiplier": -1.8,
+        "desc": "中文混淆，与'钙铝硅酸盐'同为钙硅酸盐，但为铬（钙铬榴石）"
+      },
+      {
+        "text": "镁铝硅酸盐",
+        "multiplier": -1.5,
+        "desc": "中文混淆，镁铝榴石的成分"
+      },
+      {
+        "text": "铁铝硅酸盐",
+        "multiplier": -1.5,
+        "desc": "中文混淆，铁铝榴石的成分"
+      },
+      {
+        "text": "翠榴石",
+        "multiplier": -2.2,
+        "desc": "中文混淆，钙铁榴石绿色品种，色散更强"
+      },
+      {
+        "text": "祖母绿",
+        "multiplier": -2.0,
+        "desc": "中文混淆，绿柱石家族绿色品种"
+      },
+      {
+        "text": "绿色碧玺",
+        "multiplier": -1.8,
+        "desc": "中文混淆，碧玺绿色品种"
+      },
+      {
+        "text": "绿色锆石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，锆石绿色品种"
+      },
+      {
+        "text": "铬透辉石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，辉石家族绿色品种"
+      },
+      {
+        "text": "橄榄石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，橄榄石黄绿色"
+      },
+      {
+        "text": "合成沙弗莱石",
+        "multiplier": -2.5,
+        "desc": "实验室生长"
+      },
+      {
+        "text": "绿色玻璃",
+        "multiplier": -2.8,
+        "desc": "人工仿品"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "image": "images/23_redglass.png",
+    "gemName": "红色玻璃",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "二氧化硅",
+        "multiplier": 4.0,
+        "desc": "玻璃的主要成分，石英家族核心，非晶质"
+      },
+      {
+        "text": "SiO₂",
+        "multiplier": 3.8,
+        "desc": "二氧化硅的化学式"
+      },
+      {
+        "text": "非晶质",
+        "multiplier": 3.5,
+        "desc": "玻璃为无定形体，不具有晶体结构"
+      },
+      {
+        "text": "玻璃",
+        "multiplier": 3.2,
+        "desc": "人工熔融产物，非天然矿物"
+      },
+      {
+        "text": "Glass",
+        "multiplier": 3.0,
+        "desc": "英文名称"
+      },
+      {
+        "text": "仿红宝石玻璃",
+        "multiplier": 2.8,
+        "desc": "描述性名称，点明仿制对象"
+      },
+      {
+        "text": "红宝石",
+        "multiplier": -2.2,
+        "desc": "中文混淆，刚玉家族，硬度9，与此完全不同"
+      },
+      {
+        "text": "Ruby",
+        "multiplier": -2.2,
+        "desc": "英文混淆，红宝石英文名"
+      },
+      {
+        "text": "红色尖晶石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，天然红色尖晶石"
+      },
+      {
+        "text": "红色石榴石",
+        "multiplier": -1.8,
+        "desc": "中文混淆，天然铁铝榴石"
+      },
+      {
+        "text": "红色碧玺",
+        "multiplier": -1.5,
+        "desc": "中文混淆，天然卢比莱碧玺"
+      },
+      {
+        "text": "氧化铝",
+        "multiplier": -1.5,
+        "desc": "中文混淆，红宝石的化学成分 Al₂O₃"
+      },
+      {
+        "text": "刚玉",
+        "multiplier": -2.0,
+        "desc": "中文混淆，红宝石的矿物学名称"
+      },
+      {
+        "text": "Corundum",
+        "multiplier": -2.0,
+        "desc": "英文混淆，刚玉英文名"
+      },
+      {
+        "text": "合成红宝石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，虽为人造但成分结构同天然红宝石"
+      },
+      {
+        "text": "红色玻璃仿品",
+        "multiplier": 2.5,
+        "desc": "准确描述其仿制品身份"
+      },
+      {
+        "text": "红玻璃",
+        "multiplier": 2.0,
+        "desc": "对的，就是玻璃"
+      },
+      {
+        "text": "红色铅玻璃",
+        "multiplier": 1.8,
+        "desc": "含铅玻璃，折射率更高，更像宝石"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "image": "images/24_quartz.png",
+    "gemName": "染色石英岩",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "石英岩",
+        "multiplier": 3.8,
+        "desc": "变质岩，由石英砂岩变质而成，粒状结构"
+      },
+      {
+        "text": "染色石英岩",
+        "multiplier": 3.5,
+        "desc": "准确描述，人工染色处理"
+      },
+      {
+        "text": "二氧化硅",
+        "multiplier": 4.0,
+        "desc": "石英岩的主要化学成分"
+      },
+      {
+        "text": "SiO₂",
+        "multiplier": 3.8,
+        "desc": "二氧化硅的化学式"
+      },
+      {
+        "text": "马来玉",
+        "multiplier": 3.2,
+        "desc": "染色石英岩的常见商业名称，产自马来西亚"
+      },
+      {
+        "text": "染色玉",
+        "multiplier": 2.8,
+        "desc": "描述性名称"
+      },
+      {
+        "text": "翡翠",
+        "multiplier": -2.5,
+        "desc": "中文混淆，硬玉为主组成的玉石"
+      },
+      {
+        "text": "硬玉",
+        "multiplier": -2.2,
+        "desc": "中文混淆，翡翠的矿物学名称"
+      },
+      {
+        "text": "Jadeite",
+        "multiplier": -2.2,
+        "desc": "英文混淆，硬玉英文名"
+      },
+      {
+        "text": "软玉",
+        "multiplier": -1.8,
+        "desc": "中文混淆，和田玉，透闪石"
+      },
+      {
+        "text": "绿玉髓",
+        "multiplier": -1.5,
+        "desc": "中文混淆，绿色石英质玉，天然"
+      },
+      {
+        "text": "水沫子",
+        "multiplier": -1.5,
+        "desc": "中文混淆，钠长石玉，翡翠伴生矿"
+      },
+      {
+        "text": "B玉",
+        "multiplier": -1.2,
+        "desc": "中文混淆，注胶处理翡翠，仍为翡翠"
+      },
+      {
+        "text": "C玉",
+        "multiplier": -1.2,
+        "desc": "中文混淆，染色处理翡翠，仍为翡翠"
+      },
+      {
+        "text": "绿色玻璃",
+        "multiplier": -2.0,
+        "desc": "中文混淆，玻璃仿品"
+      },
+      {
+        "text": "绿色石英岩",
+        "multiplier": 2.5,
+        "desc": "描述性名称，未说明染色"
+      },
+      {
+        "text": "马来西亚玉",
+        "multiplier": 3.0,
+        "desc": "马来玉的全称"
+      },
+      {
+        "text": "染色翡翠",
+        "multiplier": -1.0,
+        "desc": "中文混淆，针对翡翠的处理品"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "image": "images/25_moissanite.png",
+    "gemName": "莫桑石",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "碳化硅",
+        "multiplier": 4.0,
+        "desc": "莫桑石的化学成分，硅碳化合物"
+      },
+      {
+        "text": "SiC",
+        "multiplier": 3.8,
+        "desc": "碳化硅的化学式"
+      },
+      {
+        "text": "合成碳硅石",
+        "multiplier": 3.5,
+        "desc": "莫桑石的国标名称"
+      },
+      {
+        "text": "莫桑石",
+        "multiplier": 3.2,
+        "desc": "莫桑石的商业名称"
+      },
+      {
+        "text": "Moissanite",
+        "multiplier": 3.0,
+        "desc": "英文名称，以诺贝尔奖得主莫桑命名"
+      },
+      {
+        "text": "钻石仿品",
+        "multiplier": 2.8,
+        "desc": "描述性名称，点明用途"
+      },
+      {
+        "text": "碳",
+        "multiplier": -2.5,
+        "desc": "中文混淆，钻石由纯碳组成"
+      },
+      {
+        "text": "金刚石",
+        "multiplier": -2.5,
+        "desc": "中文混淆，钻石的矿物学名称"
+      },
+      {
+        "text": "钻石",
+        "multiplier": -2.8,
+        "desc": "中文混淆，纯碳组成的天然矿物"
+      },
+      {
+        "text": "Diamond",
+        "multiplier": -2.8,
+        "desc": "英文混淆，钻石英文名"
+      },
+      {
+        "text": "立方氧化锆",
+        "multiplier": -1.8,
+        "desc": "中文混淆，另一常见的钻石仿品"
+      },
+      {
+        "text": "锆石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，硅酸锆矿物"
+      },
+      {
+        "text": "苏联钻",
+        "multiplier": -1.5,
+        "desc": "中文混淆，立方氧化锆的商业名，非莫桑石"
+      },
+      {
+        "text": "合成钻石",
+        "multiplier": -1.2,
+        "desc": "中文混淆，成分结构同天然钻石"
+      },
+      {
+        "text": "无色蓝宝石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，刚玉无色品种"
+      },
+      {
+        "text": "无色尖晶石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，尖晶石无色品种"
+      },
+      {
+        "text": "双折射",
+        "multiplier": 2.5,
+        "desc": "莫桑石的重要特征，钻石为单折射"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "image": "images/26_GlassCatEye.png",
+    "gemName": "玻璃猫眼",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "玻璃纤维",
+        "multiplier": 4.0,
+        "desc": "玻璃猫眼的内部结构，纤维状玻璃"
+      },
+      {
+        "text": "二氧化硅",
+        "multiplier": 3.8,
+        "desc": "玻璃的主要化学成分"
+      },
+      {
+        "text": "SiO₂",
+        "multiplier": 3.6,
+        "desc": "二氧化硅的化学式"
+      },
+      {
+        "text": "玻璃猫眼",
+        "multiplier": 3.5,
+        "desc": "准确描述，人工玻璃仿猫眼石"
+      },
+      {
+        "text": "猫眼玻璃",
+        "multiplier": 3.2,
+        "desc": "同义"
+      },
+      {
+        "text": "人工猫眼",
+        "multiplier": 3.0,
+        "desc": "描述性名称"
+      },
+      {
+        "text": "金绿猫眼",
+        "multiplier": -2.5,
+        "desc": "中文混淆，真正的猫眼石，金绿宝石"
+      },
+      {
+        "text": "猫眼石",
+        "multiplier": -2.2,
+        "desc": "中文混淆，特指金绿宝石猫眼"
+      },
+      {
+        "text": "Cat's Eye",
+        "multiplier": -2.2,
+        "desc": "英文混淆，猫眼石英文名"
+      },
+      {
+        "text": "金绿宝石",
+        "multiplier": -2.0,
+        "desc": "中文混淆，猫眼石的矿物成分"
+      },
+      {
+        "text": "Chrysoberyl",
+        "multiplier": -2.0,
+        "desc": "英文混淆，金绿宝石英文名"
+      },
+      {
+        "text": "石英猫眼",
+        "multiplier": -1.5,
+        "desc": "中文混淆，天然石英具猫眼效应"
+      },
+      {
+        "text": "碧玺猫眼",
+        "multiplier": -1.5,
+        "desc": "中文混淆，天然碧玺具猫眼效应"
+      },
+      {
+        "text": "阳起石猫眼",
+        "multiplier": -1.2,
+        "desc": "中文混淆，天然阳起石具猫眼效应"
+      },
+      {
+        "text": "纤维状结构",
+        "multiplier": 2.5,
+        "desc": "猫眼效应的成因，准确"
+      },
+      {
+        "text": "钙铝榴石猫眼",
+        "multiplier": -1.5,
+        "desc": "中文混淆，天然钙铝榴石具猫眼效应"
+      },
+      {
+        "text": "人造猫眼",
+        "multiplier": 3.0,
+        "desc": "人造的玻璃猫眼"
+      },
+      {
+        "text": "合成金绿猫眼",
+        "multiplier": -1.0,
+        "desc": "中文混淆，合成金绿宝石猫眼"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "image": "images/27_fakePearl.png",
+    "gemName": "贝壳珍珠",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "贝壳",
+        "multiplier": 4.0,
+        "desc": "贝珠的原料，天然贝壳磨制"
+      },
+      {
+        "text": "贝珠",
+        "multiplier": 3.8,
+        "desc": "贝壳磨制而成的仿珍珠"
+      },
+      {
+        "text": "贝壳珠",
+        "multiplier": 3.5,
+        "desc": "同义"
+      },
+      {
+        "text": "碳酸钙",
+        "multiplier": 3.2,
+        "desc": "贝壳的主要化学成分，CaCO₃"
+      },
+      {
+        "text": "CaCO₃",
+        "multiplier": 3.0,
+        "desc": "碳酸钙的化学式"
+      },
+      {
+        "text": "仿珍珠",
+        "multiplier": 2.8,
+        "desc": "描述性名称"
+      },
+      {
+        "text": "珍珠",
+        "multiplier": -2.8,
+        "desc": "中文混淆，贝珠非珍珠"
+      },
+      {
+        "text": "天然珍珠",
+        "multiplier": -2.5,
+        "desc": "中文混淆，天然珍珠形成于贝类体内"
+      },
+      {
+        "text": "养殖珍珠",
+        "multiplier": -2.2,
+        "desc": "中文混淆，人工干预但具珍珠结构"
+      },
+      {
+        "text": "Akoya珍珠",
+        "multiplier": -2.2,
+        "desc": "中文混淆，海水养殖珍珠品种"
+      },
+      {
+        "text": "南洋珍珠",
+        "multiplier": -2.0,
+        "desc": "中文混淆，海水养殖珍珠品种"
+      },
+      {
+        "text": "大溪地珍珠",
+        "multiplier": -2.0,
+        "desc": "中文混淆，海水养殖珍珠品种"
+      },
+      {
+        "text": "珍珠层",
+        "multiplier": -1.8,
+        "desc": "中文混淆，天然珍珠的构成"
+      },
+      {
+        "text": "文石",
+        "multiplier": -1.5,
+        "desc": "中文混淆，珍珠的成分文石"
+      },
+      {
+        "text": "珠母贝",
+        "multiplier": -1.5,
+        "desc": "中文混淆，产珍珠的贝类"
+      },
+      {
+        "text": "树脂仿珍珠",
+        "multiplier": -1.2,
+        "desc": "中文混淆，另一类珍珠仿品"
+      },
+      {
+        "text": "塑料仿珍珠",
+        "multiplier": -1.2,
+        "desc": "中文混淆，另一类珍珠仿品"
+      },
+      {
+        "text": "有机宝石",
+        "multiplier": -1.0,
+        "desc": "中文混淆，珍珠为有机宝石，贝珠非宝石"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "image": "images/28_yongchuangtianya.png",
+    "gemName": "勇闯天涯",
+    "baseChipHint": 10,
+    "difficulty": "medium",
+    "terms": [
+      {
+        "text": "玻璃",
+        "multiplier": 3.5,
+        "desc": "非晶质人造材料，常见宝石仿制品"
+      },
+      {
+        "text": "人造宝石",
+        "multiplier": 2.0,
+        "desc": "人工制造，大类正确但未指明具体材质"
+      },
+      {
+        "text": "蓝宝石",
+        "multiplier": -2.5,
+        "desc": "天然刚玉，硬度9，常被玻璃仿冒"
+      },
+      {
+        "text": "Sapphire",
+        "multiplier": -2.5,
+        "desc": "蓝宝石英文名，国际通用宝石术语"
+      },
+      {
+        "text": "海蓝宝石",
+        "multiplier": -2.0,
+        "desc": "天然绿柱石家族，天蓝色"
+      },
+      {
+        "text": "Aquamarine",
+        "multiplier": -2.0,
+        "desc": "海蓝宝石英文名"
+      },
+      {
+        "text": "托帕石",
+        "multiplier": -1.8,
+        "desc": "天然黄玉，蓝色经辐照处理常见"
+      },
+      {
+        "text": "蓝色碧玺",
+        "multiplier": -1.8,
+        "desc": "天然电气石蓝色品种，常呈现蓝绿色"
+      },
+      {
+        "text": "坦桑石",
+        "multiplier": -1.8,
+        "desc": "天然黝帘石，蓝紫色，需热处理显色"
+      },
+      {
+        "text": "Tanzanite",
+        "multiplier": -1.8,
+        "desc": "坦桑石英文名"
+      },
+      {
+        "text": "蓝色尖晶石",
+        "multiplier": -1.5,
+        "desc": "天然尖晶石蓝色品种，常与蓝宝石混淆"
+      },
+      {
+        "text": "蓝色锆石",
+        "multiplier": -1.5,
+        "desc": "天然锆石，蓝色多经热处理"
+      },
+      {
+        "text": "青金石",
+        "multiplier": -1.0,
+        "desc": "蓝色玉石，非透明，含黄铁矿"
+      },
+      {
+        "text": "合成蓝宝石",
+        "multiplier": -2.8,
+        "desc": "实验室合成刚玉，成分相同但非天然"
+      },
+      {
+        "text": "蓝色塑料",
+        "multiplier": -3.0,
+        "desc": "有机仿品，硬度及质感远低于玻璃"
+      },
+      {
+        "text": "勇闯天涯！",
+        "multiplier": 10,
+        "desc": "这让我思考宝石的意义",
+        "easterEgg": true
+      }
+    ]
+  }
+]
