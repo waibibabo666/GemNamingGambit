@@ -1122,28 +1122,13 @@
     "terms": [
       {
         "text": "蓝色托帕石",
-        "multiplier": 3.0,
-        "desc": "中文标准名称，托帕石的蓝色品种"
-      },
-      {
-        "text": "蓝托帕",
         "multiplier": 2.5,
         "desc": "蓝色托帕石的常用中文简称"
       },
       {
-        "text": "Blue Topaz",
-        "multiplier": 3.5,
-        "desc": "英文名称，国际通用"
-      },
-      {
-        "text": "托帕石",
-        "multiplier": 1.0,
-        "desc": "中文大类正确，未指定蓝色品种"
-      },
-      {
         "text": "Topaz",
-        "multiplier": 0.8,
-        "desc": "英文大类正确，未指定蓝色品种"
+        "multiplier": 2.0,
+        "desc": "英文大类正确"
       },
       {
         "text": "黄玉",
@@ -2540,11 +2525,6 @@
         "text": "玻璃猫眼",
         "multiplier": 3.5,
         "desc": "准确描述，人工玻璃仿猫眼石"
-      },
-      {
-        "text": "猫眼玻璃",
-        "multiplier": 3.2,
-        "desc": "同义"
       },
       {
         "text": "人工猫眼",

@@ -66,6 +66,9 @@ let currentRound = 1;
 let selectedTerms = [];
 let currentQuestionIndex = 0;
 let allInUsed = false;
+let isAnimating = false; // 双击飞入/飞出动画进行中，防止连点
+let reorderTarget = null;  // 倍率区拖拽排序中的卡片 DOM
+let reorderStartY = 0;     // 拖拽起始 Y 坐标
 
 // 彩蛋词条概率 — 仅第28题有概率刷出
 const EASTER_EGG_CHANCE = 0.08;
@@ -146,7 +149,10 @@ function bindEvents() {
     const multiplierArea = document.getElementById('multiplier-area');
     multiplierArea.addEventListener('dragover', dragOver);
     multiplierArea.addEventListener('drop', drop);
-    multiplierArea.addEventListener('touchmove', touchMove, { passive: false });
+    // 倍率区内触摸拖拽排序
+    multiplierArea.addEventListener('touchstart', reorderTouchStart, { passive: false });
+    multiplierArea.addEventListener('touchmove', reorderTouchMove, { passive: false });
+    multiplierArea.addEventListener('touchend', reorderTouchEnd);
 
     const dropZone = document.getElementById('drop-zone');
     dropZone.addEventListener('dragover', dragOverDropZone);
@@ -164,10 +170,9 @@ function bindEvents() {
     document.addEventListener('dragover', preventDefaultDrag);
     document.addEventListener('drop', preventDefaultDrag);
 
-    // 移动端触摸事件
-    document.addEventListener('touchstart', touchStart, { passive: false });
-    document.addEventListener('touchmove', touchMove, { passive: false });
-    document.addEventListener('touchend', touchEnd);
+    // 双击词条添加/移除（事件委托在持久容器上，不受 DOM 重建影响）
+    document.getElementById('terms-grid').addEventListener('dblclick', handlePoolDblClick);
+    document.getElementById('multiplier-area').addEventListener('dblclick', handleMultiplierDblClick);
 }
 
 function toggleRules() {
@@ -231,7 +236,7 @@ function loadQuestion() {
     }
 
     const multiplierSlots = document.getElementById('multiplier-slots');
-    multiplierSlots.innerHTML = '<div class="multiplier-slot">拖拽词条到这里</div>';
+    multiplierSlots.innerHTML = '<div class="multiplier-slot">双击添加词条，拖拽为词条排序</div>';
     selectedTerms = [];
 
     // 随机打乱词条顺序
@@ -330,111 +335,46 @@ function removeTermFromMultiplier(slotIndex) {
     showToast('已移除词条');
 }
 
-// ── 移动端触摸拖拽 ──
-
-function touchStart(event) {
-    const target = event.target.closest('.term-card');
-    if (!target) return;
-
-    target.classList.add('dragging');
-    // 记录触摸起点，用于后续判断
-    const touch = event.touches[0];
-    target.dataset.touchStartX = touch.clientX;
-    target.dataset.touchStartY = touch.clientY;
-    event.preventDefault();
-}
-
-function touchMove(event) {
-    const target = event.target.closest('.term-card.dragging');
-    if (!target) {
-        event.preventDefault();
-        return;
+/**
+ * 将词条池中的卡片添加到倍率区（桌面拖拽和双击共用）
+ * @param {number} termIndex - question.terms 数组索引
+ * @returns {boolean} 是否成功添加
+ */
+function addTermToMultiplier(termIndex) {
+    if (selectedTerms.length >= 8) {
+        showToast('最多选择8个词条');
+        return false;
     }
 
-    event.preventDefault();
-    const touch = event.touches[0];
-    const deltaX = touch.clientX - parseFloat(target.dataset.touchStartX || 0);
-    const deltaY = touch.clientY - parseFloat(target.dataset.touchStartY || 0);
+    const question = questions[currentQuestionIndex % questions.length];
+    const term = question.terms[termIndex];
 
-    // 视觉跟随手指
-    target.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-    target.style.zIndex = '100';
+    if (!term) return false;
 
-    // 高亮当前悬浮区域
-    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
-    document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-    if (elementBelow) {
-        const dropZone = elementBelow.closest('#drop-zone');
-        const multiplierArea = elementBelow.closest('#multiplier-area');
-        if (dropZone) {
-            dropZone.classList.add('drag-over');
-        } else if (multiplierArea) {
-            multiplierArea.classList.add('drag-over');
-        }
-    }
-}
-
-function touchEnd(event) {
-    const target = event.target.closest('.term-card.dragging');
-    document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-
-    if (!target) return;
-
-    target.classList.remove('dragging');
-    target.style.transform = '';
-    target.style.zIndex = '';
-
-    const touch = event.changedTouches[0];
-    const elementAtEnd = document.elementFromPoint(touch.clientX, touch.clientY);
-
-    if (!elementAtEnd) return;
-
-    // 处理放置到倍率区
-    const multiplierArea = elementAtEnd.closest('#multiplier-area');
-    if (multiplierArea && target.classList.contains('term-card')) {
-        const question = questions[currentQuestionIndex % questions.length];
-        const isFromMultiplier = target.classList.contains('in-multiplier');
-        const slotIndex = parseInt(target.getAttribute('data-slot-index'));
-
-        if (isFromMultiplier && !isNaN(slotIndex)) {
-            // 倍率区内重排 — 暂时用末尾插入简化
-            const movedTerm = selectedTerms.splice(slotIndex, 1)[0];
-            if (movedTerm) {
-                selectedTerms.push(movedTerm);
-                renderMultiplierSlots();
-            }
-        } else if (!isFromMultiplier) {
-            const index = parseInt(target.getAttribute('data-index'));
-            const term = question.terms[index];
-            if (term && selectedTerms.length < 8 && !selectedTerms.some(t => t._idx === term._idx)) {
-                selectedTerms.push(term);
-                renderMultiplierSlots();
-                const cardToHide = document.querySelector(`#terms-grid .term-card[data-index="${index}"]`);
-                if (cardToHide) cardToHide.style.display = 'none';
-            }
-        }
-        return;
+    if (selectedTerms.some(t => t._idx === term._idx)) {
+        showToast('该词条已选择');
+        return false;
     }
 
-    // 处理放置到词条池（拖回移除）
-    const dropZone = elementAtEnd.closest('#drop-zone');
-    const termsPool = elementAtEnd.closest('.terms-pool');
-    if ((dropZone || termsPool) && target.classList.contains('in-multiplier')) {
-        const slotIndex = parseInt(target.getAttribute('data-slot-index'));
-        if (!isNaN(slotIndex)) {
-            removeTermFromMultiplier(slotIndex);
-        }
-    }
+    selectedTerms.push(term);
+    renderMultiplierSlots();
+
+    const cardToHide = document.querySelector(
+        `#terms-grid .term-card[data-index="${termIndex}"]`
+    );
+    if (cardToHide) cardToHide.style.display = 'none';
+
+    return true;
 }
 
 function dragStart(event) {
     const target = event.target;
     target.classList.add('dragging');
     event.dataTransfer.setData('text/plain', target.getAttribute('data-index'));
-    
+
     const isFromMultiplier = target.classList.contains('in-multiplier');
     event.dataTransfer.setData('fromMultiplier', isFromMultiplier);
-    
+
     if (isFromMultiplier) {
         event.dataTransfer.setData('slotIndex', target.getAttribute('data-slot-index'));
     }
@@ -442,13 +382,24 @@ function dragStart(event) {
 
 function dragEnd(event) {
     event.target.classList.remove('dragging');
+    // 清理所有拖拽高亮
+    document.querySelectorAll('#multiplier-slots .drag-over').forEach(el => el.classList.remove('drag-over'));
 }
 
 function dragOver(event) {
     event.preventDefault();
     event.stopPropagation();
+
+    // 先清除上一次的高亮
+    document.querySelectorAll('#multiplier-slots .term-card.in-multiplier.drag-over, #multiplier-slots .multiplier-slot.drag-over')
+        .forEach(el => el.classList.remove('drag-over'));
+
+    // 高亮当前目标：优先卡片，其次空 slot
+    const targetCard = event.target.closest('.term-card.in-multiplier');
     const slot = event.target.closest('.multiplier-slot');
-    if (slot) {
+    if (targetCard) {
+        targetCard.classList.add('drag-over');
+    } else if (slot) {
         slot.classList.add('drag-over');
     }
 }
@@ -465,7 +416,9 @@ function dragOverDropZone(event) {
 function drop(event) {
     event.preventDefault();
     event.stopPropagation();
-    document.querySelectorAll('.multiplier-slot').forEach(slot => slot.classList.remove('drag-over'));
+
+    // 清理所有高亮
+    document.querySelectorAll('#multiplier-slots .drag-over').forEach(el => el.classList.remove('drag-over'));
 
     const index = parseInt(event.dataTransfer.getData('text/plain'));
     const fromMultiplier = event.dataTransfer.getData('fromMultiplier') === 'true';
@@ -475,47 +428,31 @@ function drop(event) {
 
     if (fromMultiplier) {
         // 倍率区内重排序
+        const targetCard = event.target.closest('.term-card.in-multiplier');
         const targetSlot = event.target.closest('.multiplier-slot');
-        if (targetSlot) {
-            const targetSlotIndex = targetSlot.getAttribute('data-slot-index');
-            let targetIndex;
 
-            if (targetSlotIndex !== null) {
-                targetIndex = parseInt(targetSlotIndex);
-            } else {
-                targetIndex = selectedTerms.length;
-            }
+        let targetIndex = selectedTerms.length; // 默认插入末尾
+        if (targetCard) {
+            targetIndex = parseInt(targetCard.getAttribute('data-slot-index'));
+        } else if (targetSlot) {
+            const idx = targetSlot.getAttribute('data-slot-index');
+            targetIndex = idx !== null ? parseInt(idx) : selectedTerms.length;
+        }
 
-            if (sourceSlotIndex !== targetIndex && !isNaN(sourceSlotIndex)) {
-                const movedTerm = selectedTerms.splice(sourceSlotIndex, 1)[0];
-                if (movedTerm) {
-                    selectedTerms.splice(targetIndex, 0, movedTerm);
-                    renderMultiplierSlots();
-                }
+        console.log('[drop] reorder', { sourceSlotIndex, targetIndex, targetCard: !!targetCard, targetSlot: !!targetSlot });
+
+        if (!isNaN(targetIndex) && sourceSlotIndex !== targetIndex && !isNaN(sourceSlotIndex)) {
+            const movedTerm = selectedTerms.splice(sourceSlotIndex, 1)[0];
+            if (movedTerm) {
+                const adjustedTarget = targetIndex > sourceSlotIndex ? targetIndex - 1 : targetIndex;
+                selectedTerms.splice(adjustedTarget, 0, movedTerm);
+                renderMultiplierSlots();
+                console.log('[drop] reorder done', { from: sourceSlotIndex, to: adjustedTarget });
             }
         }
         // 注：从倍率区拖回词条池由 dropToTermsPool / dropToDropZone 处理
     } else {
-        if (selectedTerms.length >= 8) {
-            showToast('最多选择8个词条');
-            return;
-        }
-
-        const term = question.terms[index];
-
-        if (!term) return;
-
-        if (selectedTerms.some(t => t._idx === term._idx)) {
-            showToast('该词条已选择');
-            return;
-        }
-
-        selectedTerms.push(term);
-        renderMultiplierSlots();
-
-        // 按 data-index 查找卡片（洗牌后 DOM 位置 ≠ data-index）
-        const cardToHide = document.querySelector(`#terms-grid .term-card[data-index="${index}"]`);
-        if (cardToHide) cardToHide.style.display = 'none';
+        addTermToMultiplier(index);
     }
 }
 
@@ -539,7 +476,7 @@ function renderMultiplierSlots() {
     const multiplierSlots = document.getElementById('multiplier-slots');
     
     if (selectedTerms.length === 0) {
-        multiplierSlots.innerHTML = '<div class="multiplier-slot">拖拽词条到这里</div>';
+        multiplierSlots.innerHTML = '<div class="multiplier-slot">双击添加词条，拖拽为词条排序</div>';
         return;
     }
 
@@ -561,6 +498,298 @@ function renderMultiplierSlots() {
         card.addEventListener('dragstart', dragStart);
         card.addEventListener('dragend', dragEnd);
     });
+}
+
+// ═══════════════════════════════════════════════════════════
+// 双击添加/移除词条 + 飞行动画
+// ═══════════════════════════════════════════════════════════
+
+/**
+ * 词条池卡片 → 倍率区 飞行动画
+ * 创建 clone，从词条池位置飞到倍率区位置
+ */
+function flyCardToMultiplier(sourceCard, onComplete) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const sourceRect = sourceCard.getBoundingClientRect();
+    const multiplierSlots = document.getElementById('multiplier-slots');
+    const targetEl =
+        multiplierSlots.querySelector('.multiplier-slot:last-child') ||
+        multiplierSlots;
+    const targetRect = targetEl.getBoundingClientRect();
+
+    const clone = sourceCard.cloneNode(true);
+    clone.classList.add('card-fly-clone');
+    clone.removeAttribute('draggable');
+
+    Object.assign(clone.style, {
+        position: 'fixed',
+        left: sourceRect.left + 'px',
+        top: sourceRect.top + 'px',
+        width: sourceRect.width + 'px',
+        height: sourceRect.height + 'px',
+        margin: '0',
+        zIndex: '500',
+        pointerEvents: 'none',
+        transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+    });
+    document.body.appendChild(clone);
+
+    // 强制回流，让浏览器注册起始位置
+    clone.offsetHeight;
+
+    clone.style.left = targetRect.left + 'px';
+    clone.style.top = targetRect.top + 'px';
+    clone.style.width = targetRect.width + 'px';
+    clone.style.height = targetRect.height + 'px';
+    clone.style.opacity = '0.7';
+    clone.style.transform = 'scale(0.85)';
+
+    clone.addEventListener('transitionend', () => {
+        clone.remove();
+        isAnimating = false;
+        if (onComplete) onComplete();
+    }, { once: true });
+
+    // 兜底：500ms 后强制清理（transitionend 可能不触发）
+    setTimeout(() => {
+        if (clone.parentNode) {
+            clone.remove();
+            isAnimating = false;
+            if (onComplete) onComplete();
+        }
+    }, 500);
+}
+
+/**
+ * 倍率区卡片 → 词条池 飞行动画
+ * 创建 clone，从倍率区飞回词条池区域（淡出缩小）
+ */
+function flyCardToPool(sourceCard, onComplete) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const sourceRect = sourceCard.getBoundingClientRect();
+    const termsPool = document.querySelector('.terms-pool');
+    const poolRect = termsPool.getBoundingClientRect();
+
+    const clone = sourceCard.cloneNode(true);
+    clone.classList.add('card-fly-clone');
+
+    Object.assign(clone.style, {
+        position: 'fixed',
+        left: sourceRect.left + 'px',
+        top: sourceRect.top + 'px',
+        width: sourceRect.width + 'px',
+        height: sourceRect.height + 'px',
+        margin: '0',
+        zIndex: '500',
+        pointerEvents: 'none',
+        transition: 'all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+    });
+    document.body.appendChild(clone);
+
+    clone.offsetHeight;
+
+    clone.style.left =
+        poolRect.left + poolRect.width / 2 - sourceRect.width / 2 + 'px';
+    clone.style.top =
+        poolRect.top + poolRect.height / 2 - sourceRect.height / 2 + 'px';
+    clone.style.opacity = '0';
+    clone.style.transform = 'scale(0.8)';
+
+    clone.addEventListener('transitionend', () => {
+        clone.remove();
+        isAnimating = false;
+        if (onComplete) onComplete();
+    }, { once: true });
+
+    setTimeout(() => {
+        if (clone.parentNode) {
+            clone.remove();
+            isAnimating = false;
+            if (onComplete) onComplete();
+        }
+    }, 500);
+}
+
+/**
+ * 事件委托：双击词条池卡片 → 飞入倍率区
+ */
+function handlePoolDblClick(event) {
+    const card = event.target.closest('.term-card');
+    if (!card) return;
+    // 排除已在倍率区的卡片
+    if (card.classList.contains('in-multiplier')) return;
+    // 动画进行中或卡片已隐藏（已放入倍率区）
+    if (isAnimating || card.style.display === 'none') return;
+
+    const index = parseInt(card.getAttribute('data-index'));
+    if (isNaN(index)) return;
+
+    flyCardToMultiplier(card, () => {
+        addTermToMultiplier(index);
+    });
+}
+
+/**
+ * 事件委托：双击倍率区卡片 → 飞回词条池
+ */
+function handleMultiplierDblClick(event) {
+    const card = event.target.closest('.term-card.in-multiplier');
+    if (!card) return;
+
+    const slotIndex = parseInt(card.getAttribute('data-slot-index'));
+    if (isNaN(slotIndex) || isAnimating) return;
+
+    flyCardToPool(card, () => {
+        removeTermFromMultiplier(slotIndex);
+    });
+}
+
+// ═══════════════════════════════════════════════════════════
+// 倍率区内触摸拖拽排序
+// ═══════════════════════════════════════════════════════════
+
+const REORDER_THRESHOLD = 8; // px
+
+function reorderTouchStart(event) {
+    const card = event.target.closest('.term-card.in-multiplier');
+    if (!card || isAnimating) return;
+    reorderTarget = card;
+    reorderStartY = event.touches[0].clientY;
+    // 不调 preventDefault() — 先等 touchmove 确认是拖拽还是双击
+}
+
+function reorderTouchMove(event) {
+    if (!reorderTarget) return;
+
+    const touch = event.touches[0];
+    const deltaY = touch.clientY - reorderStartY;
+
+    // 超过阈值：锁定滚动，进入拖拽态
+    if (Math.abs(deltaY) > REORDER_THRESHOLD && !reorderTarget.classList.contains('reordering')) {
+        reorderTarget.classList.add('reordering');
+    }
+
+    if (reorderTarget.classList.contains('reordering')) {
+        event.preventDefault();
+        reorderTarget.style.transform = `translateY(${deltaY}px)`;
+        reorderTarget.style.zIndex = '100';
+        updateInsertIndicator();
+    }
+}
+
+const CARD_UNIT = 52; // px，单张卡片高度 + 间距，用于计算移位
+
+/**
+ * 在 touchMove 中动态显示插入位置：
+ * 非拖拽卡片通过 transform 上下移位，腾出空位，容器大小保持不变
+ */
+function updateInsertIndicator() {
+    const oldIndex = parseInt(reorderTarget.getAttribute('data-slot-index'));
+    const allCards = [
+        ...document.querySelectorAll('#multiplier-slots .term-card.in-multiplier')
+    ];
+
+    const draggedCard = allCards.find(
+        c => parseInt(c.getAttribute('data-slot-index')) === oldIndex
+    );
+    if (!draggedCard) return;
+
+    const draggedRect = draggedCard.getBoundingClientRect();
+    const draggedCenterY = draggedRect.top + draggedRect.height / 2;
+
+    // 计算插入位置（以 slot-index 为准）
+    let insertPos = allCards.length; // 默认末尾
+    for (const card of allCards) {
+        const idx = parseInt(card.getAttribute('data-slot-index'));
+        if (idx === oldIndex) continue;
+        const rect = card.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        if (draggedCenterY < centerY) {
+            insertPos = idx;
+            break;
+        }
+    }
+
+    // 对其他卡片施加 transform 移位，腾出空位
+    allCards.forEach(card => {
+        if (card === draggedCard) return; // 拖拽卡片由 reorderTouchMove 控制
+        const idx = parseInt(card.getAttribute('data-slot-index'));
+        let shift = 0;
+
+        if (insertPos > oldIndex) {
+            // 向下拖：oldIndex+1 ~ insertPos-1 的卡片上移一格
+            if (idx > oldIndex && idx < insertPos) {
+                shift = -CARD_UNIT;
+            }
+        } else if (insertPos < oldIndex) {
+            // 向上拖：insertPos ~ oldIndex-1 的卡片下移一格
+            if (idx >= insertPos && idx < oldIndex) {
+                shift = CARD_UNIT;
+            }
+        }
+
+        card.style.transform = shift !== 0 ? `translateY(${shift}px)` : '';
+        card.style.transition = 'transform 0.15s ease';
+    });
+}
+
+function reorderTouchEnd(event) {
+    if (!reorderTarget) return;
+
+    const wasReordering = reorderTarget.classList.contains('reordering');
+    const oldIndex = parseInt(reorderTarget.getAttribute('data-slot-index'));
+
+    // ── 在重置 transform 之前计算插入位置（此时卡片还在手指拖拽后的位置）──
+    let insertPos = oldIndex;
+    if (wasReordering && !isNaN(oldIndex)) {
+        const allCards = [
+            ...document.querySelectorAll('#multiplier-slots .term-card.in-multiplier')
+        ];
+        const draggedCard = allCards.find(
+            c => parseInt(c.getAttribute('data-slot-index')) === oldIndex
+        );
+        if (draggedCard) {
+            const draggedRect = draggedCard.getBoundingClientRect();
+            const draggedCenterY = draggedRect.top + draggedRect.height / 2;
+
+            insertPos = allCards.length; // 默认插入末尾
+            for (const card of allCards) {
+                const idx = parseInt(card.getAttribute('data-slot-index'));
+                if (idx === oldIndex) continue;
+                const rect = card.getBoundingClientRect();
+                const centerY = rect.top + rect.height / 2;
+                if (draggedCenterY < centerY) {
+                    insertPos = idx;
+                    break;
+                }
+            }
+        }
+    }
+
+    // 重置所有卡片样式（拖拽卡片 + 被移位的卡片）
+    document.querySelectorAll('#multiplier-slots .term-card.in-multiplier').forEach(c => {
+        c.classList.remove('reordering');
+        c.style.transform = '';
+        c.style.zIndex = '';
+        c.style.transition = '';
+    });
+
+    reorderTarget = null;
+
+    // 未进入拖拽态 = 轻触，留给 dblclick 处理
+    if (!wasReordering || isNaN(oldIndex)) return;
+
+    // 执行重排
+    if (insertPos !== oldIndex) {
+        const [moved] = selectedTerms.splice(oldIndex, 1);
+        const targetIdx = insertPos > oldIndex ? insertPos - 1 : insertPos;
+        selectedTerms.splice(targetIdx, 0, moved);
+        renderMultiplierSlots();
+    }
 }
 
 function adjustChip(factor) {
@@ -781,7 +1010,11 @@ async function animateReveal() {
         await sleep(800);
     }
 
-    const finalScore = hasZero ? 0 : Math.floor(baseChip * totalMultiplier);
+    let finalScore = hasZero ? 0 : Math.floor(baseChip * totalMultiplier);
+    // 正倍率保底：防止多个 <1 的正小数倍率组合积过小，被 Math.floor 截断为 0
+    if (finalScore === 0 && totalMultiplier > 0 && !hasZero) {
+        finalScore = 1;
+    }
     totalChips += finalScore;
 
     scoreDisplay.textContent = finalScore >= 0 ? `+${finalScore}` : `${finalScore}`;

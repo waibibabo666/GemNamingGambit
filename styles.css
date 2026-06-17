@@ -473,12 +473,11 @@ body::before {
 /* Chip control panel */
 .chip-panel {
     width: 40%;
+    min-height: 200px;
     padding: 16px 14px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 300px;
-    flex-shrink: 0;
 }
 
 .chip-panel h4 {
@@ -702,13 +701,11 @@ body.allin-shake {
 /* ── Multiplier area — "your hand" ── */
 .multiplier-area {
     flex: 1;
+    min-height: 200px;
     padding: 16px 14px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    height: 300px;
-    flex-shrink: 0;
-    overflow-y: auto;
     border: 2px dashed rgba(168, 85, 247, 0.3);
     border-radius: 16px;
     background: rgba(168, 85, 247, 0.03);
@@ -747,6 +744,12 @@ body.allin-shake {
     box-shadow: inset 0 0 20px rgba(34, 211, 238, 0.06);
 }
 
+/* 倍率区卡片被拖拽悬停时的高亮 */
+.term-card.in-multiplier.drag-over {
+    border-color: var(--cyan) !important;
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.4), inset 0 0 12px rgba(34, 211, 238, 0.08) !important;
+}
+
 /* ── Terms pool — "the deck" ── */
 .terms-pool {
     padding: 16px;
@@ -767,8 +770,6 @@ body.allin-shake {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    max-height: 180px;
-    overflow-y: auto;
 }
 
 /* ── Term card — playing card motif ── */
@@ -793,6 +794,7 @@ body.allin-shake {
     cursor: grab;
     transition: all 0.2s ease;
     user-select: none;
+    touch-action: manipulation; /* 禁止双击缩放，消除 300ms 延迟 */
     position: relative;
     min-height: 44px;
     display: flex;
@@ -850,9 +852,18 @@ body.allin-shake {
 }
 
 .term-card.dragging {
-    opacity: 0.4;
+    opacity: 0.85;
     cursor: grabbing;
-    transform: scale(0.95);
+    pointer-events: none; /* 让 elementFromPoint 能穿透到下方 drop target */
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.4), 0 0 0 2px var(--purple);
+    transition: none; /* 拖拽跟手，不要过渡动画 */
+}
+
+/* ── 双击飞行动画 clone ── */
+.card-fly-clone {
+    will-change: left, top, width, height, opacity, transform;
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.5), 0 0 0 2px var(--purple) !important;
 }
 
 /* ── 彩蛋结算特效 — 翻牌时金光炸裂 ── */
@@ -884,6 +895,7 @@ body.allin-shake {
 /* Term in multiplier area — "face down card" mystery */
 .term-card.in-multiplier {
     cursor: move;
+    touch-action: manipulation; /* 仅禁止双击缩放，不干扰鼠标拖拽 */
     background:
         repeating-linear-gradient(
             0deg,
@@ -897,6 +909,15 @@ body.allin-shake {
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
     color: var(--gold);
     font-weight: 700;
+}
+
+/* 倍率区内拖拽重排中 */
+.term-card.reordering {
+    z-index: 100 !important;
+    transform: scale(1.06);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.45), 0 0 0 2px var(--gold) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    opacity: 0.92;
 }
 
 /* Mystery "?" marker */
@@ -1296,6 +1317,11 @@ body.allin-shake {
 
     .btn-allin:hover {
         animation: none;
+    }
+
+    .card-fly-clone {
+        transition: none !important;
+        display: none !important; /* 直接不显示飞行动画 */
     }
 }
 
