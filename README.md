@@ -1,18 +1,11 @@
 # 🎰 宝石命名赌局 · Gem Naming Gambit
 
-> 一款 Balatro 风格暗黑赌场主题的宝石科普静态网页游戏。观察宝石图片，从词条池中拖拽正确的命名词条，乘积结算，在霓虹光芒中赢下筹码。
+> 一款宝石科普静态网页游戏。观察宝石图片，从词条池中拖拽正确的命名词条，乘积结算，在霓虹光芒中赢下筹码。
 
-**🟡 当前阶段：Demo** — 核心玩法可玩，题库 28 题，仍在持续打磨中。
+**🟡 这是电脑版** — 没有部署，可以下载，核心玩法可玩。
 
 [![GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-gold)](https://waibibabo666.github.io/GemNamingGambit/)
 
----
-
-## 快速开始
-
-访问 `https://waibibabo666.github.io/GemNamingGambit/`
-
-纯静态文件，任何静态托管（Vercel / Netlify / OSS）均可，无构建步骤。
 
 ---
 
