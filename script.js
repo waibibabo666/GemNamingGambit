@@ -66,9 +66,90 @@ let currentRound = 1;
 let selectedTerms = [];
 let currentQuestionIndex = 0;
 let allInUsed = false;
-let isAnimating = false; // 双击飞入/飞出动画进行中，防止连点
+let isAnimating = false; // 点击飞入/飞出动画进行中，防止连点
 let reorderTarget = null;  // 倍率区拖拽排序中的卡片 DOM
 let reorderStartY = 0;     // 拖拽起始 Y 坐标
+
+// ═══════════════════════════════════════════════════════════
+// 音效系统（基于 ZzFX，CDN 异步加载；未就绪时静默降级）
+// ═══════════════════════════════════════════════════════════
+
+/** 确保移动端 AudioContext 已解锁（zzfx 已内联，同步可用） */
+function _sfxReady() {
+    window.__ensureAudio && window.__ensureAudio();
+    return true;
+}
+
+/** 筹码强度系数：baseChip 越大越夸张 (0.4 ~ 1.2) */
+function chipIntensity() {
+    return 0.4 + Math.min(baseChip / 100, 0.8);
+}
+
+// ── 金币音色基准：三角波 + 中低频 + 负滑音 + 极短包络 = 金属碰撞感 ──
+
+function sfx_coinDouble() {
+    if (!_sfxReady()) return;
+    const vol = chipIntensity();
+    // 主硬币：三角波 620Hz，快速沉降（-70Hz 滑音），音量 0.55~0.95
+    zzfx(...[0.5 * vol + 0.18, 0.04, 620 + baseChip * 8, .005, .01, .08, 3, 1, -70, , , , , .04]);
+    // 第二枚硬币泛音（偏移 30ms）：更低沉 440Hz，模拟两枚硬币碰撞的不同音高
+    if (baseChip >= 20) {
+        setTimeout(() => zzfx(...[0.35 * vol + 0.12, 0.04, 440 + baseChip * 5, .005, .01, .07, 3, 1, -55, , , , , .03]), 30);
+    }
+}
+
+function sfx_coinHalf() {
+    if (!_sfxReady()) return;
+    // 筹码回收：一枚硬币快速滑落，三角波 520Hz → 430Hz
+    zzfx(...[0.45, 0.03, 520, .005, .01, .08, 3, 1, -90, , , , , .03]);
+}
+
+function sfx_allIn() {
+    if (!_sfxReady()) return;
+    const vol = chipIntensity();
+    const coins = 3 + Math.min(Math.floor(baseChip / 20), 14);
+    // 金币倾泻：每枚硬币随机音高 350~750Hz，三角波，快速负滑音
+    for (let i = 0; i < coins; i++) {
+        setTimeout(() => {
+            const f = 380 + Math.random() * 370;
+            zzfx(...[0.32 * vol + 0.25, 0.06, f, .005, .01, .06 + Math.random() * .06, 3, 1, -40 - Math.random() * 50, , , , , .04]);
+        }, i * 38);
+    }
+    // 重低音砸桌（筹码总重量）
+    setTimeout(() => {
+        zzfx(...[0.5 * vol + 0.25, 0, 45, .01, .06, .55, 2, 1, -50, , , , .25, ]);
+    }, coins * 38 + 20);
+}
+
+function sfx_select() {
+    if (!_sfxReady()) return;
+    // UI 点击：三角波 900Hz，极短促，清脆不刺耳
+    zzfx(...[0.5, 0, 900, .003, .01, .03, 3, 1, , , , , , ]);
+}
+
+function sfx_remove() {
+    if (!_sfxReady()) return;
+    // UI 移除：三角波 650Hz → 450Hz 快速滑落
+    zzfx(...[0.42, 0, 650, .003, .01, .04, 3, 1, -200, , , , , ]);
+}
+
+function sfx_revealCorrect() {
+    if (!_sfxReady()) return;
+    // 正确"叮"：三角波 520Hz → 720Hz 徐徐上扬，明亮悦耳
+    zzfx(...[0.5, 0, 520, .02, .04, .18, 3, 1, 200, , , , , ]);
+}
+
+function sfx_revealBust() {
+    if (!_sfxReady()) return;
+    // 错误蜂鸣：方波 + 超低频 + 颤音，刺耳警告
+    zzfx(...[0.55, 0, 85, .04, .06, .5, 1, 2, -60, , -300, .1, , .15, , , , , .45]);
+}
+
+function sfx_revealNegative() {
+    if (!_sfxReady()) return;
+    // 负倍率警告：方波降调，短促有力
+    zzfx(...[0.5, 0, 180, .03, .05, .3, 1, 2, -50, , -180, .08, , .1]);
+}
 
 // 彩蛋词条概率 — 仅第28题有概率刷出
 const EASTER_EGG_CHANCE = 0.08;
@@ -143,7 +224,6 @@ function loadLeaderboard() {
 }
 
 function bindEvents() {
-    document.getElementById('rules-btn').addEventListener('click', toggleRules);
     document.getElementById('start-btn').addEventListener('click', startGame);
 
     const multiplierArea = document.getElementById('multiplier-area');
@@ -170,14 +250,9 @@ function bindEvents() {
     document.addEventListener('dragover', preventDefaultDrag);
     document.addEventListener('drop', preventDefaultDrag);
 
-    // 双击词条添加/移除（事件委托在持久容器上，不受 DOM 重建影响）
-    document.getElementById('terms-grid').addEventListener('dblclick', handlePoolDblClick);
-    document.getElementById('multiplier-area').addEventListener('dblclick', handleMultiplierDblClick);
-}
-
-function toggleRules() {
-    const panel = document.getElementById('rules-panel');
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    // 点击词条添加/移除（事件委托在持久容器上，不受 DOM 重建影响）
+    document.getElementById('terms-grid').addEventListener('click', handlePoolClick);
+    document.getElementById('multiplier-area').addEventListener('click', handleMultiplierClick);
 }
 
 function startGame() {
@@ -236,7 +311,7 @@ function loadQuestion() {
     }
 
     const multiplierSlots = document.getElementById('multiplier-slots');
-    multiplierSlots.innerHTML = '<div class="multiplier-slot">双击添加词条，拖拽为词条排序</div>';
+    multiplierSlots.innerHTML = '<div class="multiplier-slot">点击添加词条，拖拽为词条排序</div>';
     selectedTerms = [];
 
     // 随机打乱词条顺序
@@ -325,6 +400,7 @@ function removeTermFromMultiplier(slotIndex) {
     if (!removedTerm) return;
 
     renderMultiplierSlots();
+    sfx_remove();
 
     // 用唯一索引 _idx 精确定位词条池卡片，防止同名 text 导致匹配错误
     const originalIndex = removedTerm._idx;
@@ -336,7 +412,7 @@ function removeTermFromMultiplier(slotIndex) {
 }
 
 /**
- * 将词条池中的卡片添加到倍率区（桌面拖拽和双击共用）
+ * 将词条池中的卡片添加到倍率区（桌面拖拽和点击共用）
  * @param {number} termIndex - question.terms 数组索引
  * @returns {boolean} 是否成功添加
  */
@@ -358,6 +434,7 @@ function addTermToMultiplier(termIndex) {
 
     selectedTerms.push(term);
     renderMultiplierSlots();
+    sfx_select();
 
     const cardToHide = document.querySelector(
         `#terms-grid .term-card[data-index="${termIndex}"]`
@@ -476,7 +553,7 @@ function renderMultiplierSlots() {
     const multiplierSlots = document.getElementById('multiplier-slots');
     
     if (selectedTerms.length === 0) {
-        multiplierSlots.innerHTML = '<div class="multiplier-slot">双击添加词条，拖拽为词条排序</div>';
+        multiplierSlots.innerHTML = '<div class="multiplier-slot">点击添加词条，拖拽为词条排序</div>';
         return;
     }
 
@@ -501,7 +578,7 @@ function renderMultiplierSlots() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// 双击添加/移除词条 + 飞行动画
+// 点击添加/移除词条 + 飞行动画
 // ═══════════════════════════════════════════════════════════
 
 /**
@@ -615,9 +692,9 @@ function flyCardToPool(sourceCard, onComplete) {
 }
 
 /**
- * 事件委托：双击词条池卡片 → 飞入倍率区
+ * 事件委托：点击词条池卡片 → 飞入倍率区
  */
-function handlePoolDblClick(event) {
+function handlePoolClick(event) {
     const card = event.target.closest('.term-card');
     if (!card) return;
     // 排除已在倍率区的卡片
@@ -634,9 +711,9 @@ function handlePoolDblClick(event) {
 }
 
 /**
- * 事件委托：双击倍率区卡片 → 飞回词条池
+ * 事件委托：点击倍率区卡片 → 飞回词条池
  */
-function handleMultiplierDblClick(event) {
+function handleMultiplierClick(event) {
     const card = event.target.closest('.term-card.in-multiplier');
     if (!card) return;
 
@@ -659,7 +736,7 @@ function reorderTouchStart(event) {
     if (!card || isAnimating) return;
     reorderTarget = card;
     reorderStartY = event.touches[0].clientY;
-    // 不调 preventDefault() — 先等 touchmove 确认是拖拽还是双击
+    // 不调 preventDefault() — 先等 touchmove 确认是拖拽还是点击
 }
 
 function reorderTouchMove(event) {
@@ -780,7 +857,7 @@ function reorderTouchEnd(event) {
 
     reorderTarget = null;
 
-    // 未进入拖拽态 = 轻触，留给 dblclick 处理
+    // 未进入拖拽态 = 轻触，留给 click 处理
     if (!wasReordering || isNaN(oldIndex)) return;
 
     // 执行重排
@@ -793,23 +870,26 @@ function reorderTouchEnd(event) {
 }
 
 function adjustChip(factor) {
-    const newChip = Math.round(baseChip * factor);
-    
     if (factor > 1) {
-        const cost = newChip - baseChip;
-        if (totalChips >= cost) {
-            totalChips -= cost;
-            baseChip = newChip;
+        // 乘操作：将累计筹码尽可能多地添加到基础筹码（最多乘 factor 倍）
+        const maxIncrease = Math.round(baseChip * (factor - 1));
+        const actualIncrease = Math.min(maxIncrease, totalChips);
+        if (actualIncrease > 0) {
+            totalChips -= actualIncrease;
+            baseChip += actualIncrease;
             updateChipDisplay();
+            sfx_coinDouble();
         } else {
             showToast('累计筹码不足');
         }
     } else {
+        const newChip = Math.round(baseChip * factor);
         const refund = baseChip - newChip;
         if (newChip >= 1) {
             totalChips += refund;
             baseChip = newChip;
             updateChipDisplay();
+            sfx_coinHalf();
         } else {
             showToast('基础筹码不能低于1');
         }
@@ -850,6 +930,9 @@ function allIn() {
     // 屏幕震动
     document.body.classList.add('allin-shake');
     setTimeout(() => document.body.classList.remove('allin-shake'), 350);
+
+    // ALL IN 音效（钱币倾泻）
+    sfx_allIn();
 
     // 霸气 toast
     showToast(`ALL IN! 押上 ${betAmount} 筹码 🔥`);
@@ -909,15 +992,20 @@ function openCards() {
         resultImage.style.display = 'none';
     }
 
+    // 隐藏宝石名称提示（答错时才显示）
+    const gemNameHint = document.getElementById('gem-name-hint');
+    gemNameHint.style.display = 'none';
+
     gameScreen.style.display = 'none';
     resultScreen.style.display = 'flex';
-    animateReveal();
+    animateReveal(question.gemName);
 }
 
-async function animateReveal() {
+async function animateReveal(gemName) {
     const multiplierDisplay = document.getElementById('multiplier-display');
     const scoreDisplay = document.getElementById('score-display');
     const revealedTerms = document.getElementById('revealed-terms');
+    const gemNameHint = document.getElementById('gem-name-hint');
 
     revealedTerms.innerHTML = '';
     multiplierDisplay.textContent = '×1.0';
@@ -938,6 +1026,7 @@ async function animateReveal() {
 
     let totalMultiplier = 1;
     let hasZero = false;
+    let stoppedEarly = false;
 
     for (let i = 0; i < selectedTerms.length; i++) {
         if (hasZero) break;
@@ -974,6 +1063,8 @@ async function animateReveal() {
         // 用 Number() 包裹确保严格数值比较（防御字符串/类型异常）
         if (m === 0) {
             hasZero = true;
+            stoppedEarly = true;
+            sfx_revealBust();
             const bustText = document.createElement('div');
             bustText.className = 'bust-text';
             bustText.textContent = 'BUST!';
@@ -991,6 +1082,8 @@ async function animateReveal() {
         }
 
         if (m < 0) {
+            stoppedEarly = true;
+            sfx_revealNegative();
             const bustText = document.createElement('div');
             bustText.className = 'bust-text';
             bustText.textContent = 'NEGATIVE!';
@@ -1007,7 +1100,15 @@ async function animateReveal() {
             break;
         }
 
+        // 正确词条音效
+        sfx_revealCorrect();
         await sleep(800);
+    }
+
+    // 答错时显示宝石名称
+    if (stoppedEarly && gemName) {
+        gemNameHint.textContent = `正确答案：${gemName}`;
+        gemNameHint.style.display = 'block';
     }
 
     let finalScore = hasZero ? 0 : Math.floor(baseChip * totalMultiplier);

@@ -166,31 +166,9 @@ body::before {
     letter-spacing: 0.08em;
 }
 
-/* Rules button — neon outline style */
-.btn-rules {
-    background: transparent;
-    border: 1.5px solid var(--purple);
-    color: var(--purple);
-    padding: 10px 28px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    transition: all 0.25s ease;
-    position: relative;
-}
-
-.btn-rules:hover {
-    background: rgba(168, 85, 247, 0.12);
-    box-shadow: var(--shadow-purple);
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
-}
-
-/* Rules panel — slide-down */
+/* Rules panel */
 .rules-panel {
-    display: none;
+    display: block;
     width: 100%;
     max-height: 280px;
     overflow-y: auto;
@@ -860,7 +838,7 @@ body.allin-shake {
     transition: none; /* 拖拽跟手，不要过渡动画 */
 }
 
-/* ── 双击飞行动画 clone ── */
+/* ── 点击飞行动画 clone ── */
 .card-fly-clone {
     will-change: left, top, width, height, opacity, transform;
     box-shadow: 0 8px 32px rgba(168, 85, 247, 0.5), 0 0 0 2px var(--purple) !important;
@@ -1016,6 +994,34 @@ body.allin-shake {
     border: 1.5px solid var(--border);
     background: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 16px rgba(168, 85, 247, 0.15);
+}
+
+/* 答错时显示的宝石名称提示 */
+.gem-name-hint {
+    display: none;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: center;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1.5px solid rgba(255, 215, 0, 0.25);
+    border-radius: 10px;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+    animation: gemNameReveal 0.4s ease-out;
+}
+
+@keyframes gemNameReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .multiplier-display {

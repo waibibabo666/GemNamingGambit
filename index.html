@@ -5,6 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>宝石命名赌局 — Gem Naming Gambit</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+    // ═══════════════════════════════════════════════════════════
+    // ZzFX 内联音效引擎 + 移动端 AudioContext 解锁
+    // 基于 ZzFX by Frank Force (MIT) — 内联免除 CDN 异步加载竞态
+    // ═══════════════════════════════════════════════════════════
+    (() => {
+        let _ctx, _unlocked = false;
+
+        // ── ZzFX 内核（精简但完整支持我们使用的参数）──
+        // 参数: [volume, randomness, frequency, attack, sustain, release,
+        //        shape, shapeCurve, slide, deltaSlide, pitchJump, pitchJumpTime,
+        //        repeat, noise, modulation, bitCrush, delay, sustainVolume, decay, tremolo]
+        window.zzfx = function(...t) {
+            if (!_ctx) {
+                _ctx = new (window.AudioContext || window.webkitAudioContext);
+                // 移动端：若 context 被挂起则尝试恢复
+                if (_ctx.state === 'suspended') _ctx.resume();
+            }
+            // 兜底：每次调用都确保 context 在运行（iOS 可能随时挂起）
+            if (_ctx.state === 'suspended') _ctx.resume();
+
+            const p = t;
+            const v = Math.min(1, p[0] || 1);                     // volume
+            const f = p[2] || 440;                                 // frequency
+            const atk = p[3] || 0;                                 // attack
+            const sus = p[4] || 0;                                 // sustain
+            const rel = p[5] || 0.1;                               // release
+            const dur = atk + sus + rel;
+            const now = _ctx.currentTime;
+            const end = now + dur;
+
+            // 振荡器
+            const osc = _ctx.createOscillator();
+            const shapes = ['sine', 'square', 'sawtooth', 'triangle'];
+            osc.type = shapes[p[6] || 0] || 'sine';
+            osc.frequency.setValueAtTime(Math.max(1, f + (p[1]||0) * f * (Math.random() * 2 - 1)), now);
+
+            // Slide（线性滑音）
+            if (p[8]) osc.frequency.linearRampToValueAtTime(Math.max(1, f + (p[8]||0)), end);
+
+            // Pitch jump（瞬时跳音）
+            if (p[10]) {
+                const pjTime = Math.min(dur, (p[11] || 0));
+                osc.frequency.setValueAtTime(Math.max(1, f + (p[10]||0)), now + pjTime);
+            }
+
+            // 增益包络 ADSR
+            const gain = _ctx.createGain();
+            gain.gain.setValueAtTime(0, now);
+            gain.gain.linearRampToValueAtTime(v, now + Math.max(0.001, atk));
+            gain.gain.setValueAtTime(v, now + atk + sus);
+            gain.gain.exponentialRampToValueAtTime(1e-5, end);
+
+            // Noise 模拟：用高频方波 + 频率随机化制造嘈杂感
+            if (p[13]) {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(60 + Math.random() * 300, now);
+            }
+
+            // Tremolo（颤音/抖动）
+            if (p[19]) {
+                const trem = _ctx.createGain();
+                const lfo = _ctx.createOscillator();
+                lfo.frequency.value = typeof p[19] === 'number' && p[19] < 1 ? p[19] * 120 : (p[19] || 20);
+                lfo.type = 'sine';
+                lfo.connect(trem.gain);
+                lfo.start(now);
+                lfo.stop(end);
+                osc.connect(trem);
+                trem.gain.setValueAtTime(0.4, now);
+                trem.gain.linearRampToValueAtTime(1, now + 0.005);
+                trem.connect(gain);
+            } else {
+                osc.connect(gain);
+            }
+
+            gain.connect(_ctx.destination);
+            osc.start(now);
+            osc.stop(end);
+        };
+
+        window.zzfxV = 0.3;
+
+        // ── 移动端音频解锁 ──
+        // iOS 要求 AudioContext 必须在用户手势中创建/恢复，否则永远 suspended
+        function unlock() {
+            if (_unlocked) return;
+            try {
+                if (!_ctx) {
+                    _ctx = new (window.AudioContext || window.webkitAudioContext);
+                }
+                if (_ctx.state === 'suspended') _ctx.resume();
+                _unlocked = true;
+            } catch(e) {}
+        }
+        document.addEventListener('touchstart', unlock, { once: true, passive: true });
+        document.addEventListener('click', unlock, { once: true, passive: true });
+
+        // 暴露给 script.js：每次 sfx 调用前确保音频可用
+        window.__ensureAudio = function() {
+            if (!_unlocked) unlock();
+        };
+    })();
+    </script>
 </head>
 <body>
     <div id="app">
@@ -16,16 +120,13 @@
                 <p class="title-sub">GEM NAMING GAMBIT</p>
             </div>
 
-            <button class="btn-rules" id="rules-btn">◆ 游戏规则</button>
             <div class="rules-panel" id="rules-panel">
                 <h3>规则书</h3>
                 <ul>
-                    <li>观察宝石，从词条池中选择正确的名称词条</li>
-                    <li>双击词条添加至倍率区（最多 8 个）</li>
-                    <li>点击开牌后按顺序翻转词条，乘积结算</li>
-                    <li>正确词条获得正倍率，错误词条可能为负或零</li>
-                    <li>遇到 0 或负数倍率立即停止翻牌</li>
-                    <li>共 10 题，最终筹码计入排行榜</li>
+                    <li>观察宝石，选择正确的命名</li>
+                    <li>根据风险，调整基础筹码</li>
+                    <li>点击开牌按钮，计算得分</li>
+                    <li>冲击个人最高分数(╯✧∇✧)╯</li>
                 </ul>
             </div>
 
@@ -80,7 +181,7 @@
                 <div class="multiplier-area" id="multiplier-area">
                     <h4>倍率区</h4>
                     <div id="multiplier-slots">
-                        <div class="multiplier-slot">双击添加词条，拖拽为词条排序</div>
+                        <div class="multiplier-slot">点击添加词条，拖拽为词条排序</div>
                     </div>
                 </div>
             </div>
@@ -89,7 +190,7 @@
                 <h4>词条池</h4>
                 <div class="terms-grid" id="terms-grid"></div>
                 <div class="drop-zone" id="drop-zone">
-                    双击词条即可移除
+                    点击词条即可移除
                 </div>
             </div>
         </div>
@@ -100,6 +201,7 @@
             <div class="result-content card-panel" id="result-content">
                 <div class="result-title">结算结果</div>
                 <img class="result-gem-image" id="result-gem-image" src="" alt="题目宝石">
+                <div class="gem-name-hint" id="gem-name-hint"></div>
                 <div class="multiplier-display" id="multiplier-display">×1.0</div>
                 <div class="score-display" id="score-display">+0</div>
                 <div class="revealed-terms" id="revealed-terms"></div>

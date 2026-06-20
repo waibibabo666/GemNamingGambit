@@ -2,7 +2,7 @@
   {
     "id": 1,
     "image": "images/01_diamond.png",
-    "gemName": "钻石",
+    "gemName": "库里南一号钻石",
     "baseChipHint": 10,
     "difficulty": "easy",
     "terms": [
@@ -33,7 +33,7 @@
       },
       {
         "text": "库里南二号钻石",
-        "multiplier": -0.5,
+        "multiplier": -2.0,
         "desc": "镶嵌于帝国王冠正面，与一号不同，易混淆"
       },
       {
@@ -94,14 +94,14 @@
       {
         "text": "人造莫桑石",
         "multiplier": -1.0,
-        "desc": "钻石仿制品，完全不相关"
+        "desc": "钻石仿制品，但这是真的钻石"
       }
     ]
   },
   {
     "id": 2,
     "image": "images/02_CarmenLucia.jpg",
-    "gemName": "红宝石",
+    "gemName": "卡门·露西亚红宝石",
     "baseChipHint": 10,
     "difficulty": "easy",
     "terms": [
@@ -117,13 +117,8 @@
       },
       {
         "text": "史密森尼鸽血红",
-        "multiplier": 2.4,
-        "desc": "描述性正确，点明收藏机构，但非官方名称"
-      },
-      {
-        "text": "缅甸无烧鸽血红",
         "multiplier": 2.0,
-        "desc": "描述其品质特征，但非这颗宝石的专有命名"
+        "desc": "描述性正确，点明收藏机构，但非官方名称"
       },
       {
         "text": "彼得·巴克红宝石",
@@ -157,13 +152,13 @@
       },
       {
         "text": "缅甸红宝石",
-        "multiplier": -1.0,
-        "desc": "过于泛化，泛指所有缅甸产红宝石"
+        "multiplier": 2.5,
+        "desc": "产自缅甸的红宝石"
       },
       {
         "text": "鸽血红",
-        "multiplier": -1.0,
-        "desc": "红宝石颜色评级术语，非宝石名称"
+        "multiplier": 2.0,
+        "desc": "红宝石颜色评级术语，高端品质"
       },
       {
         "text": "莫桑比克红宝石",
@@ -200,7 +195,7 @@
   {
     "id": 3,
     "image": "images/03_BlueBelleOfAsia.png",
-    "gemName": "蓝宝石",
+    "gemName": "亚洲蓝色美人蓝宝石",
     "baseChipHint": 10,
     "difficulty": "easy",
     "terms": [
@@ -226,13 +221,13 @@
       },
       {
         "text": "斯里兰卡蓝宝石",
-        "multiplier": 1.2,
+        "multiplier": 2.0,
         "desc": "产地命名正确，斯里兰卡是蓝宝石重要产区"
       },
       {
         "text": "锡兰蓝宝石",
         "multiplier": 1.2,
-        "desc": "锡兰为斯里兰卡旧称，历史命名"
+        "desc": "锡兰为斯里兰卡旧称，历史命名。这都知道有点厉害哦_(:3 ⌒ﾞ)_"
       },
       {
         "text": "枕形切割蓝宝石",
@@ -240,18 +235,13 @@
         "desc": "描述切割方式，大类正确"
       },
       {
-        "text": "大颗蓝宝石",
-        "multiplier": 0.5,
-        "desc": "描述尺寸，大类正确"
-      },
-      {
         "text": "蓝宝石",
         "multiplier": 0.3,
-        "desc": "矿物学大类正确，但未特指"
+        "desc": "矿物学大类正确"
       },
       {
         "text": "刚玉",
-        "multiplier": 0.3,
+        "multiplier": 1.5,
         "desc": "矿物学名称，蓝宝石为刚玉的一种"
       },
       {
@@ -276,7 +266,7 @@
       },
       {
         "text": "帕帕拉恰蓝宝石",
-        "multiplier": -1.8,
+        "multiplier": -3.0,
         "desc": "颜色完全错误（粉橙色 vs 蓝色），品种内混淆"
       },
       {
@@ -305,18 +295,13 @@
     "terms": [
       {
         "text": "哥伦比亚祖母绿原石",
-        "multiplier": 3.2,
+        "multiplier": 3.0,
         "desc": "产地+品种+形态，完整准确"
       },
       {
         "text": "祖母绿原石",
         "multiplier": 2.5,
-        "desc": "品种+形态，正确，缺产地信息"
-      },
-      {
-        "text": "哥伦比亚祖母绿",
-        "multiplier": 2.2,
-        "desc": "产地+品种，正确，未注明原石状态"
+        "desc": "品种+形态，正确"
       },
       {
         "text": "绿柱石原石",
@@ -326,16 +311,16 @@
       {
         "text": "祖母绿",
         "multiplier": 1.5,
-        "desc": "品种正确，但缺产地和形态信息"
+        "desc": "品种正确"
       },
       {
         "text": "绿柱石",
-        "multiplier": 1.2,
+        "multiplier": 2.0,
         "desc": "矿物学大类正确，祖母绿为铬致色的绿柱石"
       },
       {
         "text": "哥伦比亚原石",
-        "multiplier": 1.0,
+        "multiplier": 1.5,
         "desc": "产地+形态正确，但未点明品种"
       },
       {
@@ -429,7 +414,7 @@
       },
       {
         "text": "石英",
-        "multiplier": 1.2,
+        "multiplier": 2.0,
         "desc": "矿物学大类，紫水晶为石英的紫色变种"
       },
       {
@@ -619,16 +604,6 @@
         "text": "土耳其石",
         "multiplier": 2.5,
         "desc": "Turquoise 的中文直译，历史名称，非产自土耳其"
-      },
-      {
-        "text": "块状绿松石",
-        "multiplier": 2.0,
-        "desc": "描述原石形态，品种正确"
-      },
-      {
-        "text": "未切割绿松石",
-        "multiplier": 1.8,
-        "desc": "描述原石状态，品种正确"
       },
       {
         "text": "铜铝磷酸盐矿物",
